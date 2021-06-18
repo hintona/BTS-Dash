@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bts-dash"
+  },
+  "targets": {
+    "bts-dash": {
+      "hosting": {
+        "BTS-Dashboard": [
+          "bts-dash"
+        ]
+      }
+    }
+  }
+}

@@ -4,10 +4,40 @@
   <meta charset="utf-8">
   <title>BtsDash</title>
   <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="./assets/BTS_Logo_sm.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-functions.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyDrHYlzfwsY3rznx9e6UA6CB4WpqrK1ELY",
+        authDomain: "btsdashboard-d7ad5.firebaseapp.com",
+        projectId: "btsdashboard-d7ad5",
+        storageBucket: "btsdashboard-d7ad5.appspot.com",
+        messagingSenderId: "776148718092",
+        appId: "1:776148718092:web:c7874e5d04f06605139429",
+        measurementId: "G-4R6BDJRM2F"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>Loading...</app-root>
 </body>
 </html>

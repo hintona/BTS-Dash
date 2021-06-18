@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyA_FYrLL7otV1QgH43iQ38AAHc5uw8sVw4",
+    authDomain: "bts-dash.firebaseapp.com",
+    databaseURL: "https://bts-dash-default-rtdb.firebaseio.com",
+    projectId: "bts-dash",
+    storageBucket: "bts-dash.appspot.com",
+    messagingSenderId: "722872659222",
+    appId: "1:722872659222:web:111a219f870fe0e28b3437",
+    measurementId: "G-NPL92HGSKT"
+  }
 };
 
 /*
