@@ -3,3 +3,9 @@
     grid-template-rows: repeat(10, 13%);
     grid-gap: 1em;
 }
+
+.scroll-box {
+    overflow-y: scroll;
+    height: 363px;
+    padding: 1rem
+  }

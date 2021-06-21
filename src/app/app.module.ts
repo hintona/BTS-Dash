@@ -16,6 +16,10 @@ import { TwitterLrComponent } from './twitter-data/twitter-lr/twitter-lr.compone
 import { SpotifyRegionComponent } from './spotify-data/spotify-region/spotify-region.component';
 import { OfficialTweetsComponent } from './social-feeds/official-tweets/official-tweets.component';
 import { TrendingTweetsComponent } from './social-feeds/trending-tweets/trending-tweets.component';
+import { DataDropdownComponent } from './data-dropdown/data-dropdown.component';
+import { TwitterDataPgComponent } from './twitter-data/twitter-data-pg/twitter-data-pg.component'
+import { SpotifyDataPgComponent } from './spotify-data/spotify-data-pg/spotify-data-pg.component';
+import { InstagramDataPgComponent } from './instagram-data/instagram-data-pg/instagram-data-pg.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { TrendingTweetsComponent } from './social-feeds/trending-tweets/trending
     TwitterLrComponent,
     SpotifyRegionComponent,
     OfficialTweetsComponent,
-    TrendingTweetsComponent
+    TrendingTweetsComponent,
+    DataDropdownComponent,
+    TwitterDataPgComponent,
+    SpotifyDataPgComponent,
+    InstagramDataPgComponent
   ],
   imports: [
     BrowserModule,

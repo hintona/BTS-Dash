@@ -1,10 +1,5 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /* You can add global styles to this file, and also import other style files */
-.scroll-box {
-    overflow-y: scroll;
-    height: 350px;
-    padding: 1rem
-  }
-
 .underline{    
  background: linear-gradient(to left, #7c4dff, #F76FC4 100%);
   background-position: 0 100%;
@@ -16,4 +11,8 @@
 .bufferbox{
     border: 10px solid white;
     width: 90%;
+}
+
+.spacer {
+  height: 10px;
 }
