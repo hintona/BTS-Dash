@@ -3,11 +3,11 @@ declare const ChartCreator:any;
 declare const TwitterDataPipeline:any;
 
 @Component({
-  selector: 'app-twitter-lr',
-  templateUrl: './twitter-lr.component.html',
-  styleUrls: ['./twitter-lr.component.css']
+  selector: 'app-likeshares',
+  templateUrl: './likeshares.component.html',
+  styleUrls: ['./likeshares.component.css']
 })
-export class TwitterLrComponent implements OnInit {
+export class LikesharesComponent implements OnInit {
 
   constructor() { }
 

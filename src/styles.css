@@ -9,10 +9,29 @@
 }
 
 .bufferbox{
-    border: 10px solid white;
+    border: 10px solid transparent;
     width: 90%;
 }
 
 .spacer {
-  height: 10px;
+  height: 20px;
+}
+
+.grid-container{
+  row-gap: 20px;
+  justify-content: center;
+}
+
+.row{
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
+}
+
+.column-tweets{
+  width: 45.6%;
+  justify-content: center;
+}
+.column{
+  justify-content: center;
 }

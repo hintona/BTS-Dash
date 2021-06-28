@@ -4,14 +4,13 @@
 
     <div class="grid-container">
         <div class="row">
-            <div class="grid-item-buffer"></div>
 
             <div class="grid-item">
                 <!-- Card -->
                 <mdb-card>
                     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                     <!-- Card img -->
-                    <mdb-card-img src="assets/spotify-app-logo.png" alt="Spotify Logo"></mdb-card-img>
+                    <mdb-card-img src="" alt="LikesSharesImg"></mdb-card-img>
                     <a>
                         <div class="mask"></div>
                     </a>
@@ -20,22 +19,20 @@
                     <mdb-card-body>
                 
                     <!--Text-->
-                    <mdb-card-text> See more about how BTS is doing on Spotify, and what their top tracks are in different parts of the world
+                    <mdb-card-text> See more about the likes and shares that BTS is getting on their posts across different platforms
                     </mdb-card-text>
                 
-                    <a href="/spotify" mdbBtn color="success" mdbWavesEffect>Spotify Data</a>
+                    <a [routerLink]="['/likeshares']" fragment="#" mdbBtn color="pink" mdbWavesEffect>Likes & Shares</a>
                     </mdb-card-body>
                 </mdb-card>
             </div>
 
-            <div class="grid-item-buffer"></div>
-
             <div class="grid-item">
                 <!-- Card -->
                 <mdb-card>
                     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                     <!-- Card img -->
-                    <mdb-card-img src="assets/twitter-app-logo.svg" alt="Twitter Logo"></mdb-card-img>
+                    <mdb-card-img src="" alt="ImpressionsImg"></mdb-card-img>
                     <a>
                         <div class="mask"></div>
                     </a>
@@ -44,22 +41,20 @@
                     <mdb-card-body>
                 
                     <!--Text-->
-                    <mdb-card-text> Find out more about how BTS is trending on Twitter, and where in the world people are tweeting about them from
+                    <mdb-card-text> Find out more about what people are thinking about BTS across several platforms
                     </mdb-card-text>
                 
-                    <a href="/twitter" mdbBtn color="primary" mdbWavesEffect>Twitter Data</a>
+                    <a [routerLink]="['/impressions']" fragment="#" mdbBtn color="deep-orange" mdbWavesEffect>Impressions</a>
                     </mdb-card-body>
                 </mdb-card>
             </div>
 
-            <div class="grid-item-buffer"></div>
-
             <div class="grid-item">
                 <!-- Card -->
                 <mdb-card>
                     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                     <!-- Card img -->
-                    <mdb-card-img src="assets/insta-app-logo.png" alt="Instagram Logo"></mdb-card-img>
+                    <mdb-card-img src="" alt="FollowersImg"></mdb-card-img>
                     <a>
                         <div class="mask"></div>
                     </a>
@@ -68,16 +63,38 @@
                     <mdb-card-body>
                 
                     <!--Text-->
-                    <mdb-card-text> Learn about how BTS is doing on Instagram, and some additional stuff this is just a placeholder for sizing reasons
+                    <mdb-card-text> Learn about how many followers BTS is gaining across different platforms
                     </mdb-card-text>
                 
-                    <a href="/insta" mdbBtn gradient="peach" mdbWavesEffect>Instagram Data</a>
+                    <a [routerLink]="['/followers']" fragment="#" mdbBtn color="cyan" mdbWavesEffect>Followers</a>
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
+
+            <div class="grid-item">
+                <!-- Card -->
+                <mdb-card>
+                    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+                    <!-- Card img -->
+                    <mdb-card-img src="" alt="EngagementImg"></mdb-card-img>
+                    <a>
+                        <div class="mask"></div>
+                    </a>
+                    </div>
+                    <!--Card content-->
+                    <mdb-card-body>
+                
+                    <!--Text-->
+                    <mdb-card-text> Discover how people are interacting with BTS on social media
+                    </mdb-card-text>
+                
+                    <a [routerLink]="['/engagement']" fragment="#" mdbBtn color="yellow" mdbWavesEffect>Engagement</a>
                     </mdb-card-body>
                 </mdb-card>
             </div>
         </div>
     </div>
 
-    <!-- no spacer here, we will use a styled hr line to create the arrow -->
+    <div class="spacer"></div>
 
 </body>

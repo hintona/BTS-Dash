@@ -12,28 +12,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { TwitterLrComponent } from './twitter-data/twitter-lr/twitter-lr.component';
-import { SpotifyRegionComponent } from './spotify-data/spotify-region/spotify-region.component';
+
 import { OfficialTweetsComponent } from './social-feeds/official-tweets/official-tweets.component';
 import { TrendingTweetsComponent } from './social-feeds/trending-tweets/trending-tweets.component';
 import { DataDropdownComponent } from './data-dropdown/data-dropdown.component';
-import { TwitterDataPgComponent } from './twitter-data/twitter-data-pg/twitter-data-pg.component'
-import { SpotifyDataPgComponent } from './spotify-data/spotify-data-pg/spotify-data-pg.component';
 import { InstagramDataPgComponent } from './instagram-data/instagram-data-pg/instagram-data-pg.component';
+import { LikesharesComponent } from './likeshares/likeshares.component';
+import { EngagementComponent } from './engagement/engagement.component';
+import { FollowersComponent } from './followers/followers.component';
+import { ImpressionsComponent } from './impressions/impressions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TwitterLrComponent,
-    SpotifyRegionComponent,
     OfficialTweetsComponent,
     TrendingTweetsComponent,
     DataDropdownComponent,
-    TwitterDataPgComponent,
-    SpotifyDataPgComponent,
-    InstagramDataPgComponent
+    InstagramDataPgComponent,
+    LikesharesComponent,
+    EngagementComponent,
+    FollowersComponent,
+    ImpressionsComponent
   ],
   imports: [
     BrowserModule,

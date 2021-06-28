@@ -1,48 +1,50 @@
 <app-header></app-header>
 
-
-<div class="grid-container">
-  <div class="row">
-    <div class="grid-item-buffer"></div>
-    <div class="grid-item-tweets"><app-official-tweets>Loading...</app-official-tweets></div>
-    <div class="grid-item-buffer"></div>
-    <div class="grid-item-tweets"><app-trending-tweets>Loading...</app-trending-tweets></div>
-  </div>
-
-  <div class="spacer"></div>
-
-  <div class="row">
-    <div class="grid-item-buffer"></div>
-
-    <div class="grid-item-youtube">
-      <mdb-card>
-        <mdb-card-body>
-          <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://www.youtube.com/c/BANGTANTV" target="_blank" rel="noopener noreferrer"><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a></mdb-card-title>
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed?max-results=1&controls=0&showinfo=0&rel=0&listType=user_uploads&list=BANGTANTV" frameborder="10" allowfullscreen></iframe>
-          </div>
-          <mdb-card-text>Want to see older videos by BTS? Check out their official YouTube channel!</mdb-card-text>
-        </mdb-card-body>
-      </mdb-card>
+  <div class="grid-container">
+    <div class="row">
+      <div class="column-tweets">
+        <div class="grid-item"><app-official-tweets>Loading...</app-official-tweets></div>
+      </div>
+      <div class="column-tweets">
+        <div class="grid-item"><app-trending-tweets>Loading...</app-trending-tweets></div>
+      </div>
     </div>
 
-    <div class="grid-item-buffer"></div>
+    <div class="spacer"></div>
 
-    <div class="grid-item">
-      <mdb-card>
-        <mdb-card-body>
-          <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" target="_blank" rel="noopener noreferrer"><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a></mdb-card-title>
-          <p style="text-align: center;">
-            <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
-            width="300" height="390" frameborder="0" allowtransparency="true" 
-            allow="encrypted-media"></iframe>
-          </p>
-        </mdb-card-body>
-        <!-- Height of card needs to stay at 390 in order to keep all tracks-->
-      </mdb-card>
+    <div class="row">
+      <div class="column-youtube">
+        <div class="grid-item">
+          <mdb-card>
+            <mdb-card-body>
+              <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://www.youtube.com/c/BANGTANTV" target="_blank" rel="noopener noreferrer"><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a></mdb-card-title>
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed?max-results=1&controls=0&showinfo=0&rel=0&listType=user_uploads&list=BANGTANTV" frameborder="10" allowfullscreen></iframe>
+              </div>
+              <mdb-card-text>Want to see older videos by BTS? Check out their official YouTube channel!</mdb-card-text>
+            </mdb-card-body>
+          </mdb-card>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="grid-item">
+          <mdb-card>
+            <mdb-card-body>
+              <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" target="_blank" rel="noopener noreferrer"><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a></mdb-card-title>
+              <p style="text-align: center;">
+                <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
+                width="300" height="390" frameborder="0" allowtransparency="true" 
+                allow="encrypted-media"></iframe>
+              </p>
+            </mdb-card-body>
+            <!-- Height of card needs to stay at 390 in order to keep all tracks-->
+          </mdb-card>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
 
 <!-- This is where the instagram part will go -->
 

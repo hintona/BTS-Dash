@@ -3,11 +3,11 @@ declare const ChartCreator:any;
 declare const SpotifyDataPipeline:any;
 
 @Component({
-  selector: 'app-spotify-region',
-  templateUrl: './spotify-region.component.html',
-  styleUrls: ['./spotify-region.component.css']
+  selector: 'app-impressions',
+  templateUrl: './impressions.component.html',
+  styleUrls: ['./impressions.component.css']
 })
-export class SpotifyRegionComponent implements OnInit {
+export class ImpressionsComponent implements OnInit {
 
   constructor() { }
 
