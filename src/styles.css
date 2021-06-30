@@ -30,6 +30,7 @@
 
 .column-tweets{
   width: 45.6%;
+  min-width: 300px;
   justify-content: center;
 }
 .column{
