@@ -1,0 +1,10 @@
+.column-youtube{
+    width: 45.6%;
+    min-width: 250px;
+    justify-content: center;
+}
+
+.column-spotify{
+    min-width:300px;
+    min-height: 390px;
+}

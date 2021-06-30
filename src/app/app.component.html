@@ -32,13 +32,27 @@
           <mdb-card>
             <mdb-card-body>
               <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" target="_blank" rel="noopener noreferrer"><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a></mdb-card-title>
-              <div style="text-align: center;">
-                <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
-                width="300" height="390" frameborder="0" allowtransparency="true" 
-                allow="encrypted-media"></iframe>
-              </div>
+              <mdb-card-text>
+                <div class="" mdbCollapse [isCollapsed]="false" #smallplayer="bs-collapse" style="text-align: center;">
+                  <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
+                    width="300" height="80" frameborder="0" allowtransparency="true" 
+                    allow="encrypted-media"></iframe>
+                </div>
+                <div class="" mdbCollapse #largeplayer="bs-collapse" style="text-align: center;">
+                  <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
+                  width="300" height="390" frameborder="0" allowtransparency="true" 
+                  allow="encrypted-media"></iframe>
+                </div>
+              </mdb-card-text>
             </mdb-card-body>
-            <!-- Height of embed needs to be at least 390 in order to keep all tracks visible-->
+            <mdb-card-footer>
+              <button size="sm" type="button" mdbBtn color="link" (click)="largeplayer.toggle()" (click)="smallplayer.toggle()" (click)="toggleClosed()">
+                <div *ngIf="expanded; else closed">
+                  <mdb-icon fas icon="angle-up"></mdb-icon> Close player
+                </div>
+                <ng-template #closed><mdb-icon fas icon="angle-down"></mdb-icon> Expand player</ng-template>
+                </button>
+            </mdb-card-footer>
           </mdb-card>
         </div>
       </div>
