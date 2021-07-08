@@ -65,8 +65,8 @@ function formatTweet(data, tagRef){
             tweetRef = data.retweeted_status.entities.media[0].expanded_url;
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
-            '<a href="' + tweetRef + '">' +
-            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
+            '<a href="https://www.twitter.com/' + data.entities.user_mentions[0].screen_name + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
             //Adds text from tweet
             '</a>'+
             '<a href="' + tweetRef + '">' + 
@@ -79,8 +79,8 @@ function formatTweet(data, tagRef){
             tweetRef = data.retweeted_status.entities.urls[0].expanded_url;
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
-            '<a href="' + tweetRef + '">' +
-            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
+            '<a href="https://www.twitter.com/' + data.entities.user_mentions[0].screen_name + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
             //Adds text from tweet
             '</a>'+
             '<a href="' + tweetRef + '">' + 
@@ -95,8 +95,8 @@ function formatTweet(data, tagRef){
             tweetRef = data.entities.media[0].expanded_url;
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
-            '<a href="' + tweetRef + '">' +
-            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
+            '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             '</a>'+
             //Adds text from tweet
             '<a href="' + tweetRef + '">' + 
@@ -109,8 +109,8 @@ function formatTweet(data, tagRef){
             tweetRef = data.entities.urls[0].expanded_url;
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
-            '<a href="' + tweetRef + '">' +
-            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
+            '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             '</a>'+
             //Adds text from tweet
             '<a href="' + tweetRef + '">' + 
