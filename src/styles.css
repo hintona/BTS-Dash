@@ -2,13 +2,14 @@
 
 /* You can add global styles to this file, and also import other style files */
 
-.underline{    
- background: linear-gradient(to left, #7c4dff, #F76FC4 100%);
-  background-position: 0 100%;
-    border-radius: 20px;
-  background-size: 100% 4px;
- background-repeat: repeat-x;
+.underline{   
+  border-bottom: double 4px transparent;
+  border-radius: 4px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #7c4dff,#F76FC4);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
+
 
 .bufferbox{
     border: 10px solid transparent;
