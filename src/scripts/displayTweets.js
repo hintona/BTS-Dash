@@ -17,10 +17,10 @@ async function displayTweets(htmlElement, collectionName){
       'div.time-stamp{color:black; padding-top:10px;}'+
       '</style>'
         result.data.map(async (data) => {
-            //await translateTweetText(data.data).then((translatedTweet) => {
-                //formatTweet(translatedTweet, section);
-            //});
-            formatTweet(data.data, section);
+            await translateTweetText(data.data).then((translatedTweet) => {
+                formatTweet(translatedTweet, section);
+            });
+            //formatTweet(data.data, section);
         })
     })
 }
@@ -69,9 +69,10 @@ function formatTweet(data, tagRef){
             '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="'+ data.entities.user_mentions[0].screen_name +' profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
             //Adds text from tweet
             '</a>'+
-            '<a href="' + tweetRef + '">' + 
+            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
             '<div class="text">' + data.retweeted_status.text + '</div>' +
             '</a>'+
+            //'<img src=' + data.entities.media[0].media_url + ' alt="text"  style="height:100px">' +
             '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
             '</div>';
         }
@@ -83,7 +84,7 @@ function formatTweet(data, tagRef){
             '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="'+ data.entities.user_mentions[0].screen_name +' profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
             //Adds text from tweet
             '</a>'+
-            '<a href="' + tweetRef + '">' + 
+            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
             '<div class="text">' + data.retweeted_status.text + '</div>' +
             '</a>'+
             '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
@@ -99,7 +100,7 @@ function formatTweet(data, tagRef){
             '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             '</a>'+
             //Adds text from tweet
-            '<a href="' + tweetRef + '">' + 
+            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
             '<div class="text">' + data.text + '</div>' +
             '</a>'+
             '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
@@ -113,7 +114,7 @@ function formatTweet(data, tagRef){
             '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             '</a>'+
             //Adds text from tweet
-            '<a href="' + tweetRef + '">' + 
+            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
             '<div class="text">' + data.text + '</div>' +
             '</a>'+
             '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
