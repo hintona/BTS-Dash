@@ -66,7 +66,7 @@ function formatTweet(data, tagRef){
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
             '<a href="https://www.twitter.com/' + data.entities.user_mentions[0].screen_name + '" target="_blank" rel="noopener noreferrer">' +
-            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
+            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="'+ data.entities.user_mentions[0].screen_name +' profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
             //Adds text from tweet
             '</a>'+
             '<a href="' + tweetRef + '">' + 
@@ -80,7 +80,7 @@ function formatTweet(data, tagRef){
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
             '<a href="https://www.twitter.com/' + data.entities.user_mentions[0].screen_name + '" target="_blank" rel="noopener noreferrer">' +
-            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
+            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="'+ data.entities.user_mentions[0].screen_name +' profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
             //Adds text from tweet
             '</a>'+
             '<a href="' + tweetRef + '">' + 
@@ -96,7 +96,7 @@ function formatTweet(data, tagRef){
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
             '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
+            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             '</a>'+
             //Adds text from tweet
             '<a href="' + tweetRef + '">' + 
@@ -110,7 +110,7 @@ function formatTweet(data, tagRef){
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
             '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="Twitter profile image">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
+            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             '</a>'+
             //Adds text from tweet
             '<a href="' + tweetRef + '">' + 

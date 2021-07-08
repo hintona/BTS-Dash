@@ -16,8 +16,6 @@ export class ImpressionsComponent implements OnInit {
     let dataPipeline = new SpotifyDataPipeline();
     var optionsAudio = {
       title: 'Dynamite Audio Features',
-      width: 1500,
-      height: 500,
     }
     var optionsID = {
       showRowNumber: true,
