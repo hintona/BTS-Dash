@@ -17,6 +17,9 @@ export class ImpressionsComponent implements OnInit {
     var optionsAudio = {
       title: 'Dynamite Audio Features',
     }
+    var optionsAudio2 = {
+      title: 'Butter Audio Features',
+    }
     var optionsID = {
       showRowNumber: true,
       title: 'BTS Top Popular Tracks in Indonesia'
@@ -61,6 +64,8 @@ export class ImpressionsComponent implements OnInit {
 
     let dataAudio = await dataPipeline.getBarChartData(["Feature", "Value"]);
     chartHandler.createBarChart(dataAudio, "AudioFeatures", optionsAudio);
+    let dataAudio2 = await dataPipeline.getBarChartData2(["Feature", "Value"]);
+    chartHandler.createBarChart(dataAudio2, "ButterAudioFeatures", optionsAudio2);
     
 
     let dataUS = await dataPipeline.getTableData("name", 'US');
