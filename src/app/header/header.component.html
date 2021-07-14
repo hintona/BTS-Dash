@@ -5,14 +5,23 @@
 </span>
 
 <div class="bufferbox">
-    <div  class="aboutbox">
-        <div class="grid-container">
-            <div class="grid-item-button">
-                <button mdbBtn gradient="purple" class="waves-light" type="button" (click)="about.toggle()" mdbWavesEffect>
-                    About BTS
-                </button>
-            </div>
+  <div  class="aboutbox">
+    <div class="grid-container">
+      <div class="row">
+        <div class="grid-item" style="margin-top: 18px;">
+          <button mdbBtn gradient="purple" class="waves-light" type="button" (click)="about.toggle()" mdbWavesEffect>
+            About BTS
+          </button>
         </div>
+        <div class="grid-item"></div>
+        <div class="grid-item" style="text-align: right;">
+          <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
+            width="300" height="80" frameborder="0" allowtransparency="true" 
+            allow="encrypted-media">
+          </iframe>
+        </div>
+      </div>
+    </div>
     
     <div mdbCollapse #about="bs-collapse">
         <p class="bufferbox">BTS (Korean: 방탄소년단; RR: Bangtan Sonyeondan), also known as the Bangtan Boys, is a seven-member South Korean boy band that began formation in 2010 and debuted in 2013 under Big Hit Entertainment. 
@@ -21,36 +30,5 @@
             Their work features references to literature and psychological concepts and includes an alternative universe storyline. The group has released several albums and performed on several world tours. </p>
         <p class="bufferbox">This article uses material from the Wikipedia article <a href="https://en.wikipedia.org/wiki/BTS" target="_blank" rel="noopener noreferrer">"BTS"</a>, which is released under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-Share-Alike License 3.0</a>.</p>
     </div>
-    </div>
+  </div>
 </div>
-
-      <!--
-      <div class="column-spotify">
-        <div class="grid-item">
-          <mdb-card>
-            <mdb-card-body>
-              <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" target="_blank" rel="noopener noreferrer" style="font-family: 'TroubleSide'"><mdb-icon fab icon="spotify"></mdb-icon> BTS Spotify</a></mdb-card-title>
-              <mdb-card-text>
-                <div class="" mdbCollapse [isCollapsed]="false" #smallplayer="bs-collapse" style="text-align: center;">
-                  <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
-                    width="300" height="80" frameborder="0" allowtransparency="true" 
-                    allow="encrypted-media"></iframe>
-                </div>
-                <div class="" mdbCollapse #largeplayer="bs-collapse" style="text-align: center;">
-                  <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
-                  width="300" height="390" frameborder="0" allowtransparency="true" 
-                  allow="encrypted-media"></iframe>
-                </div>
-              </mdb-card-text>
-            </mdb-card-body>
-            <mdb-card-footer>
-              <button size="sm" type="button" mdbBtn color="link" (click)="largeplayer.toggle()" (click)="smallplayer.toggle()" (click)="toggleClosed()">
-                <div *ngIf="expanded; else closed">
-                  <mdb-icon fas icon="angle-up"></mdb-icon> Close player
-                </div>
-                <ng-template #closed><mdb-icon fas icon="angle-down"></mdb-icon> Expand player</ng-template>
-                </button>
-            </mdb-card-footer>
-          </mdb-card>
-        </div>
-      </div>-->

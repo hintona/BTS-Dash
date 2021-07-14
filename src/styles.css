@@ -10,10 +10,9 @@
   background-clip: content-box, border-box;
 }
 
-
 .bufferbox{
-    border: 10px solid transparent;
-    width: 100%;
+  border: 10px solid transparent;
+  width: 100%;
 }
 
 .spacer {
@@ -36,6 +35,7 @@
   min-width: 300px;
   justify-content: center;
 }
+
 .column{
   justify-content: center;
 }

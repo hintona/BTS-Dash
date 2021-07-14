@@ -13,19 +13,11 @@
 }
 
 .grid-item{
-    border: solid red 1px;
-    width:310px;
-}
-
-.grid-item-button{
-    border: solid transparent 1px;
-    width:170px;
-    text-align: center;
+    width:31%;
+    margin: 5px;
 }
 
 .row{
     column-gap: 0px;
-    border: solid red 1px;
-    width:98%;
-    text-align: left;
 }
+
