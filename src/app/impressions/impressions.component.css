@@ -1,4 +1,8 @@
 .grid-item-spotify{
     min-width: 250px;
-    width: 45%
 }
+ .column{
+    min-width: 250px;
+    width: 45%;
+    row-gap: 20px;
+ }
