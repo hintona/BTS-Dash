@@ -12,7 +12,7 @@ class SpotifyTopTracks{
         this.database = database;
         console.log(this.spotifyApi);
     }
-    //A method to get the audio features from a track. Right now, it is getting data for the Dynamite track.
+    //A method to get the audio features from a track. Right now, it is getting data for the Butter track.
     async getAudio(){
     this.database.deleteDocuments("AudioFeatures");
     this.spotifyApi
@@ -24,7 +24,7 @@ class SpotifyTopTracks{
 
         
         
-        let Audio = await this.spotifyApi.getAudioFeaturesForTrack('4saklk6nie3yiGePpBwUoc');
+        let Audio = await this.spotifyApi.getAudioFeaturesForTrack('2bgTY4UwhfBYhGT4HUYStN');
         return Audio;
         
       })
@@ -36,30 +36,6 @@ class SpotifyTopTracks{
       .catch(function(err) {
         console.log('Unfortunately, something has gone wrong.', err.message, err);
       });}
-    
-      async getButterAudio(){
-        this.database.deleteDocuments("ButterAudioFeatures");
-        this.spotifyApi
-          .clientCredentialsGrant()
-          .then(async (data) => {
-            // Set the access token on the API object so that it's used in all future requests
-            //console.log(data);
-            this.spotifyApi.setAccessToken(data.body.access_token);
-    
-            
-            
-            let Audio = await this.spotifyApi.getAudioFeaturesForTrack('2bgTY4UwhfBYhGT4HUYStN');
-            return Audio;
-            
-          })
-          .then((data) =>{
-            
-            this.database.saveDocument(data, "ButterAudioFeatures");
-            
-          })
-          .catch(function(err) {
-            console.log('Unfortunately, something has gone wrong.', err.message, err);
-          });}
     
   //Get top tracks for selected country, first delete existing tracks in appropriate collection, that add new tracks
   async getTracks(region){
