@@ -1,11 +1,12 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url(//db.onlinewebfonts.com/c/960bd0df5a0d90ddc8aea6e9fd055abe?family=Camber);
 
 /* You can add global styles to this file, and also import other style files */
 
 .underline{   
   border-bottom: double 4px transparent;
   border-radius: 4px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #7c4dff,#F76FC4);
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left,#F76FC4, #7c4dff);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -40,6 +41,11 @@
   justify-content: center;
 }
 
+mdb-card-text{
+  text-align:justify;
+  font-family: 'Camber';
+}
+
 @font-face {
   font-family: 'TroubleSide';
   src: local('TroubleSide'), url('./assets/fonts/Regular/TroubleSide.woff2') format('woff2'),
@@ -49,3 +55,12 @@
   font-style: normal;
   font-display: swap;
 }
+
+  @font-face {
+    font-family: "Camber"; 
+    src: url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.eot"); 
+    src: url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.woff") format("woff"), url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.svg#Camber") format("svg"); 
+  } 

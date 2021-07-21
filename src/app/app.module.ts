@@ -21,6 +21,7 @@ import { LikesharesComponent } from './likeshares/likeshares.component';
 import { EngagementComponent } from './engagement/engagement.component';
 import { FollowersComponent } from './followers/followers.component';
 import { ImpressionsComponent } from './impressions/impressions.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ImpressionsComponent } from './impressions/impressions.component';
     LikesharesComponent,
     EngagementComponent,
     FollowersComponent,
-    ImpressionsComponent
+    ImpressionsComponent,
+    FaqPageComponent
   ],
   imports: [
     BrowserModule,
