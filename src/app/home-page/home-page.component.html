@@ -1,0 +1,91 @@
+<div class="bufferbox">
+  <div  class="aboutbox">
+    <div class="grid-container">
+
+      <div class="row" style="column-gap: 1px;">
+        <div class="grid-item-about" style="margin-top: 18px;">
+          <button mdbBtn gradient="purple" class="waves-light" type="button" (click)="about.toggle()" mdbWavesEffect>
+            <span style="font-family: TroubleSide;">About BTS</span>
+          </button>
+        </div>
+        <div class="grid-item-about"></div>
+        <div class="grid-item-about" style="text-align: right; margin-top:10px">
+          <iframe src="https://open.spotify.com/embed/artist/3Nrfpe0tUJi4K4DXYWgMUX" 
+            width="300" height="80" frameborder="0" allowtransparency="true" 
+            allow="encrypted-media">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+    
+    <div mdbCollapse #about="bs-collapse">
+        <p class="bufferbox" style="font-family: Camber;">BTS (Korean: 방탄소년단; RR: Bangtan Sonyeondan), also known as the Bangtan Boys, is a seven-member South Korean boy band that began formation in 2010 and debuted in 2013 under Big Hit Entertainment. 
+            The septet—composed of Jin, Suga, J-Hope, RM, Jimin, V, and Jungkook—co-writes and co-produces much of their own output. Originally a hip hop group, their musical style has evolved to include a wide 
+            range of genres. Their lyrics, often focused on personal and social commentary, touch on the themes of mental health, troubles of school-age youth, loss, the journey towards loving oneself, and individualism. 
+            Their work features references to literature and psychological concepts and includes an alternative universe storyline. The group has released several albums and performed on several world tours. </p>
+        <p class="bufferbox" style="font-family: Camber;">This article uses material from the Wikipedia article <a href="https://en.wikipedia.org/wiki/BTS" target="_blank" rel="noopener noreferrer">"BTS"</a>, which is released under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-Share-Alike License 3.0</a>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="grid-container">
+  <div class="row">
+    <div class="column-tweets">
+      <div class="grid-item"><app-official-tweets id="twitter-feed">Loading...</app-official-tweets></div>
+    </div>
+    <div class="column-tweets">
+      <div class="grid-item"><app-trending-tweets>Loading...</app-trending-tweets></div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="row">
+    <div class="column-youtube">
+      <div class="grid-item">
+        <mdb-card id="youtube-feed">
+          <mdb-card-body>
+            <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://www.youtube.com/c/BANGTANTV" target="_blank" rel="noopener noreferrer" style="font-family: 'TroubleSide'"><mdb-icon fab icon="youtube"></mdb-icon> BTS Youtube</a></mdb-card-title>
+            <mdb-card-text>Want to see older YouTube videos by BTS? Check out their official YouTube channel!
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed?max-results=1&controls=1&showinfo=0&rel=0&listType=user_uploads&list=BANGTANTV" frameborder="10" allowfullscreen></iframe>
+              </div>
+            </mdb-card-text>
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+    </div>
+
+    <div class="column-youtube">
+      <div class="grid-item">
+        <mdb-card>
+          <mdb-card-body>
+            <mdb-card-title><a mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect href="https://www.youtube.com/c/HYBELABELS/" target="_blank" rel="noopener noreferrer" style="font-family: 'TroubleSide'"><mdb-icon fab icon="youtube"></mdb-icon> Hybe Youtube</a></mdb-card-title>
+            <mdb-card-text>Want to see older videos from Hybe Labels? Check out their official YouTube channel!
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed?max-results=1&controls=2&showinfo=0&rel=0&listType=user_uploads&list=ibighit" frameborder="10" allowfullscreen></iframe>
+              </div>
+            </mdb-card-text>
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a md-fab id="fab">
+<div class="side-box">
+  <a [routerLink]="" fragment="top" title="Back to Top"><mdb-icon fas icon="arrow-up" class="white-text" style="margin-top:10px"></mdb-icon></a>
+  <br />
+  <a [routerLink]="" fragment="twitter-feed" title="Go to Twitter Feeds"><mdb-icon fab icon="twitter-square" size="2x" class="white-text"></mdb-icon></a>
+  <br />
+  <a [routerLink]="" fragment="youtube-feed" title="Go to YouTube Feeds"><mdb-icon fab icon="youtube-square" size="2x" class="white-text" style="margin-bottom:10px"></mdb-icon></a>
+</div>
+</a>
+
+<div class="spacer"></div>
+
+<app-data-dropdown></app-data-dropdown>

@@ -60,37 +60,44 @@ async function translateTweetText(tweetData){
  */
 function formatTweet(data, tagRef){
     let tweetRef;
+    // If the tweet is a retweet
     if(data.retweeted_status != undefined){
         if(data.retweeted_status.entities.media != undefined){
             tweetRef = data.retweeted_status.entities.media[0].expanded_url;
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
-            '<a href="https://www.twitter.com/' + data.entities.user_mentions[0].screen_name + '" target="_blank" rel="noopener noreferrer">' +
-            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="'+ data.entities.user_mentions[0].screen_name +' profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
+            '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
+            data.entities.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
             //Adds text from tweet
+            '</a>'+ 
+            '<div class="text">' + 'RT from @' + data.retweeted_status.user.screen_name + ':<br />' + 
+            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + data.retweeted_status.text + '</p>' +
             '</a>'+
-            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
-            '<div class="text">' + data.retweeted_status.text + '</div>' +
-            '</a>'+
+            '</div>' +
             //'<img src=' + data.entities.media[0].media_url + ' alt="text"  style="height:100px">' +
-            '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
+            '<div class="time-stamp">' + "Created at: " + data.created_at + 
             '</div>';
         }
         else if(data.retweeted_status.entities.urls[0] != undefined){
             tweetRef = data.retweeted_status.entities.urls[0].expanded_url;
             tagRef.innerHTML += '<div class="tweet">' +
             //Adds profile pic, twitter name and handle
-            '<a href="https://www.twitter.com/' + data.entities.user_mentions[0].screen_name + '" target="_blank" rel="noopener noreferrer">' +
-            '<p class="text">' + '<img src=' + data.retweeted_status.user.profile_image_url_https + ' class="profile" alt="'+ data.entities.user_mentions[0].screen_name +' profile">  ' + data.retweeted_status.user.name + '  @' + data.retweeted_status.user.screen_name + ' </p>' +
+            '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
+            data.entities.user_mentions[0].screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p></a>' +
             //Adds text from tweet
+            '<div class="text">' + 'RT from @' + data.retweeted_status.user.screen_name + ':<br />' +
+            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
+            '<p class="text">' + data.retweeted_status.text + '</p>' +
             '</a>'+
-            '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
-            '<div class="text">' + data.retweeted_status.text + '</div>' +
-            '</a>'+
-            '<div class="time-stamp">' + "Created at: " + data.created_at + '<div>'+
-            '</div></a>';
+            '</div>' +
+            '<div class="time-stamp">' + "Created at: " + data.created_at +
+            '</div>';
         }
     }
+    // If not, it's an original tweet
     else{
         if(data.entities.media != undefined){
             tweetRef = data.entities.media[0].expanded_url;

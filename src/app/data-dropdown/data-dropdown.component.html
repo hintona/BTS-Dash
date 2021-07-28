@@ -22,7 +22,9 @@
                     <mdb-card-text> See more about the likes and retweets that BTS is getting on Twitter
                     </mdb-card-text>
                 
-                    <div style="text-align: center;"><a [routerLink]="['/likeshares']" fragment="#" mdbBtn color="pink" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</a></div>
+                    <div style="text-align: center;">
+                        <button (click)="likeshares.toggle()" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</button>
+                    </div>
                     </mdb-card-body>
                 </mdb-card>
             </div>
@@ -44,7 +46,9 @@
                     <mdb-card-text> Learn about how many followers BTS has across different platforms
                     </mdb-card-text>
                 
-                    <div style="text-align: center;"><a [routerLink]="['/followers']" fragment="#" mdbBtn color="cyan" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Followers</a></div>
+                    <div style="text-align: center;">
+                        <button (click)="followers.toggle()" mdbBtn color="cyan" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Followers</button>
+                    </div>
                     
                     </mdb-card-body>
                 </mdb-card>
@@ -67,7 +71,9 @@
                     <mdb-card-text> Find out more about what people are thinking about BTS's music
                     </mdb-card-text>
                 
-                    <div style="text-align: center"><a [routerLink]="['/impressions']" fragment="#" mdbBtn color="deep-orange" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Impressions</a></div>
+                    <div style="text-align: center">
+                        <button (click)="impressions.toggle()" mdbBtn color="deep-orange" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Impressions</button>
+                    </div>
                     </mdb-card-body>
                 </mdb-card>
             </div>
@@ -89,7 +95,9 @@
                     <mdb-card-text> Discover how people are interacting with BTS on social media
                     </mdb-card-text>
                 
-                    <div style="text-align: center;"><a [routerLink]="['/engagement']" fragment="#" mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</a></div>
+                    <div style="text-align: center;">
+                        <button (click)="engagement.toggle()" mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</button>
+                    </div>
                     </mdb-card-body>
                 </mdb-card>
             </div>
@@ -97,5 +105,18 @@
     </div>
 
     <div class="spacer"></div>
-
+</body>
+<body>
+    <div mdbCollapse #likeshares="bs-collapse">
+        <app-likeshares></app-likeshares>
+    </div>
+    <div mdbCollapse #followers="bs-collapse">
+        <app-followers></app-followers>
+    </div>
+    <div mdbCollapse #impressions="bs-collapse">
+        <app-impressions></app-impressions>
+    </div>
+    <div mdbCollapse #engagement="bs-collapse">
+        <app-engagement></app-engagement>
+    </div>
 </body>

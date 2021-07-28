@@ -6,3 +6,10 @@
     width: 45%;
     row-gap: 20px;
  }
+ .underline2{   
+    border-bottom: double 4px transparent;
+    border-radius: 4px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left,#FF7043, #FF7043);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }

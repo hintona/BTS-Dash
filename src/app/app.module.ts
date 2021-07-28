@@ -16,12 +16,12 @@ import { FooterComponent } from './footer/footer.component';
 import { OfficialTweetsComponent } from './social-feeds/official-tweets/official-tweets.component';
 import { TrendingTweetsComponent } from './social-feeds/trending-tweets/trending-tweets.component';
 import { DataDropdownComponent } from './data-dropdown/data-dropdown.component';
-import { InstagramDataPgComponent } from './instagram-data/instagram-data-pg/instagram-data-pg.component';
 import { LikesharesComponent } from './likeshares/likeshares.component';
 import { EngagementComponent } from './engagement/engagement.component';
 import { FollowersComponent } from './followers/followers.component';
 import { ImpressionsComponent } from './impressions/impressions.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +31,12 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
     OfficialTweetsComponent,
     TrendingTweetsComponent,
     DataDropdownComponent,
-    InstagramDataPgComponent,
     LikesharesComponent,
     EngagementComponent,
     FollowersComponent,
     ImpressionsComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

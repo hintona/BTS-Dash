@@ -1,0 +1,42 @@
+.aboutbox{
+    border: double 4px transparent;
+    border-radius: 4px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left,#F76FC4, #7c4dff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.grid-item-about{
+    width: 31.5%;
+    margin: 5px;
+}
+
+.column-youtube{
+    width: 45.5%;
+    justify-content: center;
+}
+
+.column-spotify{
+    min-width: 300px;
+    min-height: 390px;
+}
+
+#fab{
+    position: fixed;
+    right: 0px;
+    bottom: 40%;
+    box-shadow: 2px 2px 3px #999;
+}
+*{
+    margin: 0;
+}
+.md-fab-bottom-right2 {
+    position: fixed !important;
+}
+
+.side-box{
+    width: 50px;
+    text-align: center;
+    border-radius: 3px;
+    background: linear-gradient(to left, #7c4dff,#F76FC4 100%);
+}

@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EngagementComponent } from './engagement/engagement.component';
-import { FollowersComponent } from './followers/followers.component';
-import { ImpressionsComponent } from './impressions/impressions.component';
-import { LikesharesComponent } from './likeshares/likeshares.component';
-
+import { HomePageComponent } from './home-page/home-page.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 
 const routes: Routes = [
-  { path: 'engagement', component: EngagementComponent },
-  { path: 'likeshares', component: LikesharesComponent },
-  { path: 'impressions', component: ImpressionsComponent },
-  { path: 'followers', component: FollowersComponent }
+  { path: '', component: HomePageComponent },
+  { path: 'faq', component: FaqPageComponent }
 ];
 
 @NgModule({
