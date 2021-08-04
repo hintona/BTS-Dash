@@ -22,9 +22,18 @@
                     <mdb-card-text> See more about the likes and retweets that BTS is getting on Twitter
                     </mdb-card-text>
                 
-                    <div style="text-align: center;">
-                        <button (click)="likeshares.toggle()" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</button>
+                    <div *ngIf="likeshares == false; else LSelse">
+                        <div style="text-align: center;">
+                            <button aria-expanded="false" [routerLink]="" fragment="likeshares" (click)="toggle('likeshares')" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</button>
+                        </div>
                     </div>
+
+                    <ng-template #LSelse>
+                        <div style="text-align: center; border: #ec407a solid 2px; border-radius: 3px">
+                            <button aria-expanded="false" [routerLink]="" fragment="likeshares" (click)="toggle('likeshares')" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</button>
+                        </div>
+                    </ng-template>
+
                     </mdb-card-body>
                 </mdb-card>
             </div>
@@ -46,9 +55,17 @@
                     <mdb-card-text> Learn about how many followers BTS has across different platforms
                     </mdb-card-text>
                 
-                    <div style="text-align: center;">
-                        <button (click)="followers.toggle()" mdbBtn color="cyan" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Followers</button>
+                    <div *ngIf="followers == false; else Felse">
+                        <div style="text-align: center;">
+                            <button aria-expanded="false" [routerLink]="" fragment="followers" (click)="toggle('followers')" mdbBtn color="cyan" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Followers</button>
+                        </div>
                     </div>
+
+                    <ng-template #Felse>
+                        <div style="text-align: center; border-radius: 3px; border: #00bcd4 solid 2px">
+                            <button aria-expanded="false" [routerLink]="" fragment="followers" (click)="toggle('followers')" mdbBtn color="cyan" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Followers</button>
+                        </div>
+                    </ng-template>
                     
                     </mdb-card-body>
                 </mdb-card>
@@ -71,9 +88,18 @@
                     <mdb-card-text> Find out more about what people are thinking about BTS's music
                     </mdb-card-text>
                 
-                    <div style="text-align: center">
-                        <button (click)="impressions.toggle()" mdbBtn color="deep-orange" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Impressions</button>
+                    <div *ngIf="impressions == false; else Ielse">
+                        <div style="text-align: center">
+                            <button aria-expanded="false" [routerLink]="" fragment="impressions" (click)="toggle('impressions')" mdbBtn color="deep-orange" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Impressions</button>
+                        </div>
                     </div>
+
+                    <ng-template #Ielse>
+                        <div style="text-align: center; border-radius: 3px; border: #ff7043 solid 2px">
+                            <button aria-expanded="false" [routerLink]="" fragment="impressions" (click)="toggle('impressions')" mdbBtn color="deep-orange" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Impressions</button>
+                        </div>
+                    </ng-template>
+
                     </mdb-card-body>
                 </mdb-card>
             </div>
@@ -95,9 +121,20 @@
                     <mdb-card-text> Discover how people are interacting with BTS on social media
                     </mdb-card-text>
                 
-                    <div style="text-align: center;">
-                        <button (click)="engagement.toggle()" mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</button>
+                    <div *ngIf="engagement == false; else Eelse">
+                        <div style="text-align: center;">
+                            <button aria-expanded="false" [routerLink]="" fragment="engagement" (click)="toggle('engagement');" 
+                            mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</button>
+                        </div>
                     </div>
+
+                    <ng-template #Eelse>
+                        <div style="text-align: center; border-radius: 3px; border: #fbc02d solid 2px">
+                            <button aria-expanded="false" [routerLink]="" fragment="engagement" (click)="toggle('engagement');" 
+                            mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</button>
+                        </div>
+                    </ng-template>
+
                     </mdb-card-body>
                 </mdb-card>
             </div>
@@ -107,16 +144,16 @@
     <div class="spacer"></div>
 </body>
 <body>
-    <div mdbCollapse #likeshares="bs-collapse">
+    <div *ngIf="likeshares == true">
         <app-likeshares></app-likeshares>
     </div>
-    <div mdbCollapse #followers="bs-collapse">
+    <div *ngIf="followers == true">
         <app-followers></app-followers>
     </div>
-    <div mdbCollapse #impressions="bs-collapse">
+    <div *ngIf="impressions == true">
         <app-impressions></app-impressions>
     </div>
-    <div mdbCollapse #engagement="bs-collapse">
+    <div *ngIf="engagement == true">
         <app-engagement></app-engagement>
     </div>
 </body>
