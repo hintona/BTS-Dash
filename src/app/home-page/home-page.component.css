@@ -13,6 +13,7 @@
 
 .column-youtube{
     width: 45.5%;
+    min-width: 250px;
     justify-content: center;
 }
 
@@ -39,4 +40,16 @@
     text-align: center;
     border-radius: 3px;
     background: linear-gradient(to left, #7c4dff,#F76FC4 100%);
+}
+
+@media (max-width: 950px){
+    #abtSpotify {
+        display: none;
+    }
+}
+
+@media (min-width: 950px){
+    #spotify {
+        display: none;
+    }
 }

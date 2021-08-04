@@ -5,6 +5,12 @@
     font-family: 'TroubleSide';
     font-size: 40px;
     height: 55px;
-    width: 100%;
+    width: 100vw;
+}
+
+@media (max-width: 690px){
+    #icon{
+        display: none;
+    }
 }
 
