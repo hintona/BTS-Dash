@@ -16,6 +16,7 @@ export class ImpressionsComponent implements OnInit {
     let dataPipeline = new SpotifyDataPipeline();
     var optionsAudio = {
       title: 'Dynamite Audio Features',
+      colors: ['#FE714A']
     }
     var optionsAudio2 = {
       title: 'Butter Audio Features',

@@ -16,6 +16,7 @@ export class LikesharesComponent implements OnInit {
     let dataPipeline = new TwitterDataPipeline();
     var options = {
       title: 'BTS Fan Twitter Activity',
+      colors: ['#ec407a','#00bcd4'],
       vAxis: {title: 'Activity'},
       hAxis: {title: 'Date'},
       seriesType: 'bars',
