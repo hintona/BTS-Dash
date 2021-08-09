@@ -7,7 +7,8 @@
 }
 
 .grid-item-about{
-    width: 31.5%;
+    width: 45vw;
+    min-width: 300px;
     margin: 5px;
 }
 
@@ -40,16 +41,4 @@
     text-align: center;
     border-radius: 3px;
     background: linear-gradient(to left, #7c4dff,#F76FC4 100%);
-}
-
-@media (max-width: 950px){
-    #abtSpotify {
-        display: none;
-    }
-}
-
-@media (min-width: 950px){
-    #spotify {
-        display: none;
-    }
 }
