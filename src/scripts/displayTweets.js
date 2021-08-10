@@ -9,7 +9,7 @@ async function displayTweets(htmlElement, collectionName){
     const section = document.getElementById(htmlElement);
     getTweets(collectionName).then(result => {
         section.innerHTML += '<style>' +
-      'div.tweet{ width: 100%; border: 3px solid #fbc02d; text-align: left;  padding-left: 15px; padding-top: 10px; border-radius: 5px; height: fit-content;}' +
+      'div.tweet{ width: 100%; border: 3px solid #fbc02d; text-align: left;  padding-left: 15px; padding-top: 10px; border-radius: 5px; height: fit-content; margin-bottom: 50px;}' +
       'img.profile {border: 1px solid black; border-radius: 50%;}' +
       'p.text, div.text {color:black;}' +
       'p.text:hover{text-decoration: underline}'+
