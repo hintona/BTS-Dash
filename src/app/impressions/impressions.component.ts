@@ -15,11 +15,8 @@ export class ImpressionsComponent implements OnInit {
     let chartHandler = new ChartCreator();
     let dataPipeline = new SpotifyDataPipeline();
     var optionsAudio = {
-      title: 'Dynamite Audio Features',
-      colors: ['#FE714A']
-    }
-    var optionsAudio2 = {
       title: 'Butter Audio Features',
+      colors: ['#FE714A']
     }
     var optionsID = {
       showRowNumber: true,
@@ -65,8 +62,6 @@ export class ImpressionsComponent implements OnInit {
 
     let dataAudio = await dataPipeline.getBarChartData(["Feature", "Value"]);
     chartHandler.createBarChart(dataAudio, "AudioFeatures", optionsAudio);
-    let dataAudio2 = await dataPipeline.getBarChartData2(["Feature", "Value"]);
-    chartHandler.createBarChart(dataAudio2, "ButterAudioFeatures", optionsAudio2);
     
 
     let dataUS = await dataPipeline.getTableData("name", 'US');

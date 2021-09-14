@@ -58,9 +58,11 @@ mdb-card-text{
 
   @font-face {
     font-family: "Camber"; 
-    src: url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.eot"); 
-    src: url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.eot?#iefix") format("embedded-opentype"), 
-    url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.woff2") format("woff2"), 
-    url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.woff") format("woff"), url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.ttf") format("truetype"), 
-    url("//db.onlinewebfonts.com/t/960bd0df5a0d90ddc8aea6e9fd055abe.svg#Camber") format("svg"); 
+    src: local('Camber'), url('./assets/fonts/Regular/Camber.woff2') format('woff2'),
+    local('Camber'), url('./assets/fonts/Regular/Camber.woff') format('woff'),
+    local('Camber'), url('./assets/fonts/Regular/Camber.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+    
   } 
