@@ -17,40 +17,9 @@ async function displayTweets(htmlElement, collectionName){
       'div.time-stamp{color:black; padding-top:10px;}'+
       '</style>'
         result.data.map(async (data) => {
-            //await translateTweetText(data.data).then((translatedTweet) => {
-                //formatTweet(translatedTweet, section);
-            //});
             formatTweet(data.data, section);
         })
     })
-}
-/**
- * This function will translate and change the text of a tweet if it is not already in english
- * @param tweetData The JSON data of a twitter tweet
- * @returns The tweet JSON Object
- */
-async function translateTweetText(tweetData){
-    let retTweet = tweetData;
-    let translateText = await firebase.functions().httpsCallable("translateText");
-    if(tweetData.retweeted_status != null){
-        if(tweetData.retweeted_status.lang != "en"){
-            data = {"text":tweetData.retweeted_status.text, "from":tweetData.retweeted_status.lang, "to":"en"};
-            await translateText(data).then((result) => {
-                tweetData.retweeted_status.text = result.data;
-                retTweet = tweetData;
-            });
-        }
-    } 
-    else{
-        if(tweetData.lang != "en"){
-            data = {"text":tweetData.text, "from":tweetData.lang, "to":"en"};
-            await translateText(data).then((result) => {
-                tweetData.text = result.data;
-                retTweet = tweetData;
-            });
-        }
-    }
-    return retTweet;
 }
 /**
  * Given a tweet JSON object this function will format the tweet in a blue container, including the user's profile image, their
