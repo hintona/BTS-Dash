@@ -28,6 +28,7 @@
 .row{
   column-gap: 20px;
   row-gap: 20px;
+  width: 100vw;
   justify-content: center;
 }
 
@@ -39,6 +40,10 @@
 
 .column{
   justify-content: center;
+}
+
+body{
+  overflow-x: hidden;
 }
 
 mdb-card-text{

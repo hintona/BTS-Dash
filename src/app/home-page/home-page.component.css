@@ -18,6 +18,17 @@
     justify-content: center;
 }
 
+.colorbox{
+    text-align: center;
+    background: linear-gradient(to left, #7c4dff, #F76FC4 100%);
+    color: white;
+    font-family: 'TroubleSide';
+    font-size: 25px;
+    height: 40px;
+    width: 100vw;
+    margin-top: 20px;
+}
+
 .column-spotify{
     min-width: 300px;
     min-height: 390px;
