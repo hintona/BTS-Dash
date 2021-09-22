@@ -9,8 +9,9 @@ async function displayTweets(htmlElement, collectionName){
     const section = document.getElementById(htmlElement);
     getTweets(collectionName).then(result => {
         section.innerHTML += '<style>' +
-      'div.tweet{ width: 100%; border: 3px solid #fbc02d; text-align: left;  padding-left: 15px; padding-top: 10px; border-radius: 5px; height: fit-content; margin-bottom: 50px;}' +
-      'img.profile {border: 1px solid black; border-radius: 50%;}' +
+      'div.tweet{ width: 100%; border: 1px solid lightgrey; text-align: left; padding-left: 15px; padding-top: 10px; background: white}' +
+      'div.tweet:hover{background:#f2f2f2}' +
+      'img.profile {border: 1px solid transparent; border-radius: 50%;}' +
       'p.text, div.text {color:black;}' +
       'p.text:hover{text-decoration: underline}'+
       'div.text:hover{text-decoration: underline}'+
@@ -29,7 +30,6 @@ async function displayTweets(htmlElement, collectionName){
  */
 function formatTweet(data, tagRef){
     let tweetRef;
-    // If the tweet is a retweet
     if(data.retweeted_status != undefined){
         if(data.retweeted_status.entities.media != undefined){
             tweetRef = data.retweeted_status.entities.media[0].expanded_url;
@@ -40,14 +40,16 @@ function formatTweet(data, tagRef){
                     data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
                 //Adds text from tweet
                 '</a>'+ 
-                '<div class="text">' + 'RT from @' + data.retweeted_status.user.screen_name + ':<br />' + 
-                    '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
-                        '<p class="text">' + data.retweeted_status.text + '</p>' +
-                    '</a>'+
-                '</div>' +
-                //'<img src=' + data.entities.media[0].media_url + ' alt="text"  style="height:100px">' +
+                '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
+                    '<p class="text">' + data.text + '</p>' +
+                '</a>'+
+                '<img src=' + data.entities.media[0].media_url + ' alt="text"  style="height:100px">' +
                 '<div class="time-stamp">' + "Created at: " + data.created_at + 
                 '</div>' + 
+                '<span style="text-align:center">'+
+                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.retweeted_status.favorite_count +
+                    '</div>'
+                '</span>'
             '</div>';
         }
         else if(data.retweeted_status.entities.urls[0] != undefined){
@@ -60,13 +62,15 @@ function formatTweet(data, tagRef){
                     '</p>' +
                 '</a>' +
                 //Adds text from tweet
-                '<div class="text">' + 'RT from @' + data.retweeted_status.user.screen_name + ':<br />' +
-                    '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
-                        '<p class="text">' + data.retweeted_status.text + '</p>' +
-                    '</a>'+
-                '</div>' +
+                '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
+                    '<p class="text">' + data.text + '</p>' +
+                '</a>'+
                 '<div class="time-stamp">' + "Created at: " + data.created_at +
                 '</div>' +
+                '<span style="text-align:center">'+
+                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.retweeted_status.favorite_count +
+                    '</div>'
+                '</span>'
             '</div>';
         }
     }
@@ -84,6 +88,10 @@ function formatTweet(data, tagRef){
                     '<div class="text">' + data.text + '</div>' +
                 '</a>'+
                 '<div class="time-stamp">' + "Created at: " + data.created_at + '</div>'+
+                '<span style="text-align:center">'+
+                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.favorite_count +
+                    '</div>'
+                '</span>'
             '</div>';
         }
         else if(data.entities.urls[0] != undefined){
@@ -98,6 +106,10 @@ function formatTweet(data, tagRef){
                     '<div class="text">' + data.text + '</div>' +
                 '</a>'+
                 '<div class="time-stamp">' + "Created at: " + data.created_at + '</div>'+
+                '<span style="text-align:center">'+
+                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.favorite_count +
+                    '</div>'
+                '</span>'
             '</div>';
         }
     }
