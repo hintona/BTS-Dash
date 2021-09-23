@@ -12,9 +12,10 @@ async function displayTweets(htmlElement, collectionName){
       'div.tweet{ width: 100%; border: 1px solid lightgrey; text-align: left; padding-left: 15px; padding-top: 10px; background: white}' +
       'div.tweet:hover{background:#f2f2f2}' +
       'img.profile {border: 1px solid transparent; border-radius: 50%;}' +
-      '.text {color:black;}' +
+      '.text {color:black; padding-right:10px}' +
+      '.name {color:black;}' +
       '.text:hover{text-decoration: underline}'+
-      '.text:hover{text-decoration: underline}'+
+      '.name:hover{text-decoration: underline}'+
       '.time-stamp{color:grey;}'+
       '</style>'
         result.data.map(async (data) => {
@@ -32,6 +33,7 @@ function formatTweet(data, tagRef){
     let tweetRef;
 
     let retweetCount;
+    let timeStamp = data.created_at;
 
     if(data.retweeted_status != undefined){
         retweetCount = data.retweeted_status.favorite_count;
@@ -55,9 +57,11 @@ function formatTweet(data, tagRef){
     tagRef.innerHTML += '<div class="tweet">' +
     //Adds profile pic, twitter name and handle
     '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-        '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
-        data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + 
-        '</p>' +
+        '<div>' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
+        data.user.screen_name +' profile">  ' + 
+        '<span class="name">' + data.user.name + '</span>' +
+        '<span class="time-stamp">  @' + data.user.screen_name + ' · ' + timeStamp.substring(4,10) + '</span>' +
+        '</div>' +
     '</a>' +
 
     //Adds text from tweet
@@ -65,11 +69,8 @@ function formatTweet(data, tagRef){
         '<p class="text">' + data.text + '</p>' +
     '</a>'+
 
-    '<div class="time-stamp">' + "Created at: " + data.created_at +
-    '</div>' +
-
     '<span style="text-align:center">'+
-        '<div>' + "<=>" + data.retweet_count + " <3 " + retweetCount +
+        '<div>' + "<img src=../assets/retweet_icon.png>" + data.retweet_count + '<img src=../assets/likes_icon.png style="padding-left:10px">' + retweetCount +
         '</div>'
     '</span>'
     '</div>';
