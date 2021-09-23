@@ -12,10 +12,10 @@ async function displayTweets(htmlElement, collectionName){
       'div.tweet{ width: 100%; border: 1px solid lightgrey; text-align: left; padding-left: 15px; padding-top: 10px; background: white}' +
       'div.tweet:hover{background:#f2f2f2}' +
       'img.profile {border: 1px solid transparent; border-radius: 50%;}' +
-      'p.text, div.text {color:black;}' +
-      'p.text:hover{text-decoration: underline}'+
-      'div.text:hover{text-decoration: underline}'+
-      'div.time-stamp{color:black; padding-top:10px;}'+
+      '.text {color:black;}' +
+      '.text:hover{text-decoration: underline}'+
+      '.text:hover{text-decoration: underline}'+
+      '.time-stamp{color:grey;}'+
       '</style>'
         result.data.map(async (data) => {
             formatTweet(data.data, section);
@@ -30,87 +30,47 @@ async function displayTweets(htmlElement, collectionName){
  */
 function formatTweet(data, tagRef){
     let tweetRef;
+
+    let retweetCount;
+
     if(data.retweeted_status != undefined){
+        retweetCount = data.retweeted_status.favorite_count;
         if(data.retweeted_status.entities.media != undefined){
             tweetRef = data.retweeted_status.entities.media[0].expanded_url;
-            tagRef.innerHTML += '<div class="tweet">' +
-            //Adds profile pic, twitter name and handle
-                '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-                    '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
-                    data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
-                //Adds text from tweet
-                '</a>'+ 
-                '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
-                    '<p class="text">' + data.text + '</p>' +
-                '</a>'+
-                '<img src=' + data.entities.media[0].media_url + ' alt="text"  style="height:100px">' +
-                '<div class="time-stamp">' + "Created at: " + data.created_at + 
-                '</div>' + 
-                '<span style="text-align:center">'+
-                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.retweeted_status.favorite_count +
-                    '</div>'
-                '</span>'
-            '</div>';
         }
         else if(data.retweeted_status.entities.urls[0] != undefined){
             tweetRef = data.retweeted_status.entities.urls[0].expanded_url;
-            tagRef.innerHTML += '<div class="tweet">' +
-                //Adds profile pic, twitter name and handle
-                '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-                    '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
-                    data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + 
-                    '</p>' +
-                '</a>' +
-                //Adds text from tweet
-                '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
-                    '<p class="text">' + data.text + '</p>' +
-                '</a>'+
-                '<div class="time-stamp">' + "Created at: " + data.created_at +
-                '</div>' +
-                '<span style="text-align:center">'+
-                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.retweeted_status.favorite_count +
-                    '</div>'
-                '</span>'
-            '</div>';
         }
     }
-    // If not, it's an original tweet
     else{
+        retweetCount = data.favorite_count;
         if(data.entities.media != undefined){
             tweetRef = data.entities.media[0].expanded_url;
-            tagRef.innerHTML += '<div class="tweet">' +
-                //Adds profile pic, twitter name and handle
-                '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-                    '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
-                '</a>'+
-                //Adds text from tweet
-                '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
-                    '<div class="text">' + data.text + '</div>' +
-                '</a>'+
-                '<div class="time-stamp">' + "Created at: " + data.created_at + '</div>'+
-                '<span style="text-align:center">'+
-                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.favorite_count +
-                    '</div>'
-                '</span>'
-            '</div>';
         }
         else if(data.entities.urls[0] != undefined){
             tweetRef = data.entities.urls[0].expanded_url;
-            tagRef.innerHTML += '<div class="tweet">' +
-                //Adds profile pic, twitter name and handle
-                '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
-                    '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + ' </p>' +
-                '</a>'+
-                //Adds text from tweet
-                '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' + 
-                    '<div class="text">' + data.text + '</div>' +
-                '</a>'+
-                '<div class="time-stamp">' + "Created at: " + data.created_at + '</div>'+
-                '<span style="text-align:center">'+
-                    '<div>' + "<=>" + data.retweet_count + " <3 " + data.favorite_count +
-                    '</div>'
-                '</span>'
-            '</div>';
         }
     }
+
+    tagRef.innerHTML += '<div class="tweet">' +
+    //Adds profile pic, twitter name and handle
+    '<a href="https://www.twitter.com/' + data.user.screen_name + '" target="_blank" rel="noopener noreferrer">' +
+        '<p class="text">' + '<img src=' + data.user.profile_image_url_https + ' class="profile" alt="'+ 
+        data.user.screen_name +' profile">  ' + data.user.name + '  @' + data.user.screen_name + 
+        '</p>' +
+    '</a>' +
+
+    //Adds text from tweet
+    '<a href="' + tweetRef + '" target="_blank" rel="noopener noreferrer">' +
+        '<p class="text">' + data.text + '</p>' +
+    '</a>'+
+
+    '<div class="time-stamp">' + "Created at: " + data.created_at +
+    '</div>' +
+
+    '<span style="text-align:center">'+
+        '<div>' + "<=>" + data.retweet_count + " <3 " + retweetCount +
+        '</div>'
+    '</span>'
+    '</div>';
 }
