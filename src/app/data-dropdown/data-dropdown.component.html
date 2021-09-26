@@ -10,41 +10,6 @@
                 <mdb-card>
                     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
                     <!-- Card img -->
-                    <mdb-card-img src="assets/engagement.png" alt="EngagementImg"></mdb-card-img>
-                    <a>
-                        <div class="mask"></div>
-                    </a>
-                    </div>
-                    <!--Card content-->
-                    <mdb-card-body>
-                
-                    <!--Text-->
-                    <mdb-card-text> Discover how people are interacting with BTS on social media
-                    </mdb-card-text>
-                
-                    <div *ngIf="engagement == false; else Eelse">
-                        <div style="text-align: center;">
-                            <button aria-expanded="false" [routerLink]="" fragment="engagement" (click)="toggle('engagement');" 
-                            mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</button>
-                        </div>
-                    </div>
-
-                    <ng-template #Eelse>
-                        <div style="text-align: center; border-radius: 3px; border: #fbc02d solid 2px">
-                            <button aria-expanded="false" [routerLink]="" fragment="engagement" (click)="toggle('engagement');" 
-                            mdbBtn color="yellow" mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Engagement</button>
-                        </div>
-                    </ng-template>
-
-                    </mdb-card-body>
-                </mdb-card>
-            </div>
-
-            <div class="grid-item">
-                <!-- Card -->
-                <mdb-card>
-                    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
-                    <!-- Card img -->
                     <mdb-card-img src="assets/likeshareimg.png" alt="Dark Pink Heart"></mdb-card-img>
                     <a>
                         <div class="mask"></div>
@@ -59,13 +24,13 @@
                 
                     <div *ngIf="likeshares == false; else LSelse">
                         <div style="text-align: center;">
-                            <button aria-expanded="false" [routerLink]="" fragment="likeshares" (click)="toggle('likeshares')" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</button>
+                            <button aria-expanded="false" [routerLink]="" fragment="likeshares" (click)="toggle('likeshares')" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Views</button>
                         </div>
                     </div>
 
                     <ng-template #LSelse>
                         <div style="text-align: center; border: #ec407a solid 2px; border-radius: 3px">
-                            <button aria-expanded="false" [routerLink]="" fragment="likeshares" (click)="toggle('likeshares')" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Likes & Shares</button>
+                            <button aria-expanded="false" [routerLink]="" fragment="likeshares" (click)="toggle('likeshares')" class="waves-light" type="button" mdbBtn color="pink" mdbWavesEffect mdbWavesEffect style="color:black;  font-family: 'TroubleSide';">Views</button>
                         </div>
                     </ng-template>
 
@@ -153,8 +118,5 @@
     </div>
     <div *ngIf="impressions == true">
         <app-impressions></app-impressions>
-    </div>
-    <div *ngIf="engagement == true">
-        <app-engagement></app-engagement>
     </div>
 </body>

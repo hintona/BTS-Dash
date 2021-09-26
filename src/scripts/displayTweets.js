@@ -35,6 +35,7 @@ function formatTweet(data, tagRef){
     let retweetCount;
     let timeStamp = data.created_at;
 
+    //If tweet has been retweeted
     if(data.retweeted_status != undefined){
         retweetCount = data.retweeted_status.favorite_count;
         if(data.retweeted_status.entities.media != undefined){
@@ -44,6 +45,7 @@ function formatTweet(data, tagRef){
             tweetRef = data.retweeted_status.entities.urls[0].expanded_url;
         }
     }
+    //Else tweet is original
     else{
         retweetCount = data.favorite_count;
         if(data.entities.media != undefined){

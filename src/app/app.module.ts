@@ -17,7 +17,6 @@ import { OfficialTweetsComponent } from './social-feeds/official-tweets/official
 import { TrendingTweetsComponent } from './social-feeds/trending-tweets/trending-tweets.component';
 import { DataDropdownComponent } from './data-dropdown/data-dropdown.component';
 import { LikesharesComponent } from './likeshares/likeshares.component';
-import { EngagementComponent } from './engagement/engagement.component';
 import { FollowersComponent } from './followers/followers.component';
 import { ImpressionsComponent } from './impressions/impressions.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
@@ -32,7 +31,6 @@ import { HomePageComponent } from './home-page/home-page.component';
     TrendingTweetsComponent,
     DataDropdownComponent,
     LikesharesComponent,
-    EngagementComponent,
     FollowersComponent,
     ImpressionsComponent,
     FaqPageComponent,
