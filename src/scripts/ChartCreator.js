@@ -18,12 +18,6 @@ class ChartCreator{
         barChart.draw(processedData, options);
     }
     //@VT_VACKINTOSH
-    async createGeoChart(chartData, htmlElement, options){
-        var processedData = google.visualization.arrayToDataTable(chartData);
-        var geoChart = new google.visualization.GeoChart(document.getElementById(htmlElement));
-        geoChart.draw(processedData, options);
-    }
-    //@VT_VACKINTOSH
     async createTable(chartData, htmlElement, options){
         var processedData = chartData;
         var table = new google.visualization.Table(document.getElementById(htmlElement));

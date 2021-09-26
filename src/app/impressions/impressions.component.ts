@@ -14,10 +14,6 @@ export class ImpressionsComponent implements OnInit {
   async ngOnInit(){
     let chartHandler = new ChartCreator();
     let dataPipeline = new SpotifyDataPipeline();
-    var optionsAudio = {
-      title: 'Butter Audio Features',
-      colors: ['#FE714A']
-    }
     var optionsID = {
       showRowNumber: true,
       title: 'BTS Top Popular Tracks in Indonesia'
@@ -59,9 +55,6 @@ export class ImpressionsComponent implements OnInit {
       showRowNumber: true,
       title: 'BTS Top Popular Tracks in Japan'
     }
-
-    let dataAudio = await dataPipeline.getBarChartData(["Feature", "Value"]);
-    chartHandler.createBarChart(dataAudio, "AudioFeatures", optionsAudio);
     
 
     let dataUS = await dataPipeline.getTableData("name", 'US');
