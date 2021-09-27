@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
 import { OfficialTweetsComponent } from './social-feeds/official-tweets/official-tweets.component';
 import { TrendingTweetsComponent } from './social-feeds/trending-tweets/trending-tweets.component';
 import { DataDropdownComponent } from './data-dropdown/data-dropdown.component';
@@ -21,6 +20,8 @@ import { FollowersComponent } from './followers/followers.component';
 import { ImpressionsComponent } from './impressions/impressions.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

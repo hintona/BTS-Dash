@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
+import { Label } from 'ng2-charts';
 declare const ChartCreator:any;
 declare const TwitterDataPipeline:any;
 
@@ -10,6 +12,15 @@ declare const TwitterDataPipeline:any;
 export class LikesharesComponent implements OnInit {
 
   constructor() { }
+
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels = ["Activity", "Time"];
+  public barChartType : ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartData: any[] = [];
 
   async ngOnInit(){
     let chartHandler = new ChartCreator();
@@ -25,6 +36,9 @@ export class LikesharesComponent implements OnInit {
     let data = await dataPipeline.getComboChartData("favorite_count", "retweet_count", ["Date", "Likes", "Retweets"]);
     console.log(data);
     chartHandler.createComboChart(data, "activityChart", options);
+    
+    
+    
   }
 
 }
