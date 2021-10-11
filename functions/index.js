@@ -31,27 +31,13 @@ const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 //@VT_VACKINTOSH
 exports.getTopTracks = functions.https.onRequest((request, response) =>{
   cors(request, response, async () => {
-    SpotifyTracker.getAudio();
-  SpotifyTracker.getTracks('PH');
   SpotifyTracker.getTracks('US');
-  SpotifyTracker.getTracks('TH');
   SpotifyTracker.getTracks('BR');
-  SpotifyTracker.getTracks('MX');
-  SpotifyTracker.getTracks('MY');
-  SpotifyTracker.getTracks('IN');
+  SpotifyTracker.getTracks('FR');
   SpotifyTracker.getTracks('KR');
   SpotifyTracker.getTracks('JP');
-  SpotifyTracker.getTracks('ID');
   })
   
-})
-
-//KD
-exports.translateText = functions.https.onCall(async (data, context) => {
-  translate.engine = 'google';
-  translate.key = process.env.GOOGLE_TRANSLATION_KEY;
-  const translatedText = await translate(data.text, {from:data.from, to:data.to});
-  return translatedText;
 })
 
 //KD

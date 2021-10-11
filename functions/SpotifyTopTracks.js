@@ -1,9 +1,5 @@
-
 //@VT_VACKINTOSH
 //A class with a method to pull tracks and audio features of tracks from Spotify
-
-
-
 
 // SpotifyTopTracks has an api agent and collections agent
 class SpotifyTopTracks{
@@ -33,9 +29,6 @@ class SpotifyTopTracks{
         }
       })
       .then((data) =>{
-        console.log('The most popular tracks for BTS..');
-        console.log('Drum roll..');
-        console.log('...');
         console.log(data.body);
         
         data.body.tracks.forEach((track, index) =>{

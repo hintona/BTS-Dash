@@ -24,8 +24,8 @@ async function displayTweets(htmlElement, collectionName){
     })
 }
 /**
- * Given a tweet JSON object this function will format the tweet in a blue container, including the user's profile image, their
- * username, their twitter handle, the text contained in the tweet, and the tweet's time stamp
+ * Given a tweet JSON object this function will format the tweet in a twitter-like container, including the user's profile image, their
+ * username, their twitter handle, the text contained in the tweet, the tweet's time stamp, and the likes/retweets count
  * @param data The tweet JSON object
  * @param tagRef A reference to the HTML element the tweet will be formatted in
  */

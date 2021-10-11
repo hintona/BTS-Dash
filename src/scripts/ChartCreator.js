@@ -1,5 +1,5 @@
 //KD
-google.charts.load('current', {'packages':['corechart', 'geochart', 'table'], mapsApiKey:'AIzaSyDrHYlzfwsY3rznx9e6UA6CB4WpqrK1ELY'});
+google.charts.load('current', {'packages':['corechart'], mapsApiKey:'AIzaSyDrHYlzfwsY3rznx9e6UA6CB4WpqrK1ELY'});
 //google.charts.setOnLoadCallback(function(){drawChart});
 
 /**
@@ -16,11 +16,5 @@ class ChartCreator{
         var processedData = google.visualization.arrayToDataTable(chartData);
         var barChart = new google.visualization.BarChart(document.getElementById(htmlElement));
         barChart.draw(processedData, options);
-    }
-    //@VT_VACKINTOSH
-    async createTable(chartData, htmlElement, options){
-        var processedData = chartData;
-        var table = new google.visualization.Table(document.getElementById(htmlElement));
-        table.draw(processedData, options);
     }
 }
