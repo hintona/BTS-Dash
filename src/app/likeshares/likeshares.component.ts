@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label } from 'ng2-charts';
 declare const TwitterDataPipeline:any;
 
 @Component({
@@ -12,13 +12,15 @@ export class LikesharesComponent implements OnInit {
 
   constructor() { }
 
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
+  public barChartOptions : ChartOptions = {
     responsive: true,
   };
   public barChartLabels = ['---', '---', '---', '---', '---', '---', '---'];
   public barChartType : ChartType = 'bar';
   public barChartLegend = true;
+  public barChartColors : any[] = [{
+    backgroundColor:['#ec407a','#00bcd4','#ec407a','#ec407a','#ec407a','#ec407a','#ec407a']
+  }];
   public barChartData = [
     {data: [0], label: 'Likes'},
     {data: [0], label: 'Retweets'}
@@ -26,8 +28,6 @@ export class LikesharesComponent implements OnInit {
 
   async ngOnInit(){
     let dataPipeline = new TwitterDataPipeline();
-    let colors: ['#ec407a','#00bcd4']
-
     var likesData = await dataPipeline.getRoundedBarChartAxis("favorite_count");
     var retweetsData = await dataPipeline.getRoundedBarChartAxis("retweet_count");
     this.refreshData(0, likesData);
