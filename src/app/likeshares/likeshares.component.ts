@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
-declare const ChartCreator:any;
 declare const TwitterDataPipeline:any;
 
 @Component({
@@ -15,30 +14,42 @@ export class LikesharesComponent implements OnInit {
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
-    responsive: true
+    responsive: true,
   };
-  public barChartLabels = ["Activity", "Time"];
+  public barChartLabels = ['---', '---', '---', '---', '---', '---', '---'];
   public barChartType : ChartType = 'bar';
   public barChartLegend = true;
-  public barChartData: any[] = [];
+  public barChartData = [
+    {data: [0], label: 'Likes'},
+    {data: [0], label: 'Retweets'}
+  ];
 
   async ngOnInit(){
-    let chartHandler = new ChartCreator();
     let dataPipeline = new TwitterDataPipeline();
-    var options = {
-      title: 'BTS ARMY Twitter Activity',
-      colors: ['#ec407a','#00bcd4'],
-      vAxis: {title: 'Activity'},
-      hAxis: {title: 'Date'},
-      seriesType: 'bars',
-      series: {5: {type: 'line'}}
-    };
-    let data = await dataPipeline.getComboChartData("favorite_count", "retweet_count", ["Date", "Likes", "Retweets"]);
-    console.log(data);
-    chartHandler.createComboChart(data, "activityChart", options);
-    
-    
-    
+    let colors: ['#ec407a','#00bcd4']
+
+    var likesData = await dataPipeline.getRoundedBarChartAxis("favorite_count");
+    var retweetsData = await dataPipeline.getRoundedBarChartAxis("retweet_count");
+    this.refreshData(0, likesData);
+    this.refreshData(1, retweetsData);
+    this.getDates();
   }
 
+  refreshData(axis:number, newData:number[]){
+    this.barChartData[axis].data = newData;
+  }
+
+  getDates(){
+    let dateRange = 7;
+    let currDate = new Date();
+    let presentDate;
+    let dateData;
+    let dates = [];
+    for(let index = 0; index<dateRange; index++){
+      presentDate = new Date(currDate.getTime() - (index * 24 * 60 * 60 * 1000));
+      dateData = presentDate.getFullYear() + "-" + (presentDate.getMonth()+1) + "-" + presentDate.getDate();
+      dates.push(dateData);
+    }
+    this.barChartLabels = dates;
+  }
 }
