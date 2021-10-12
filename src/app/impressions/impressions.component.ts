@@ -13,15 +13,10 @@ export class ImpressionsComponent implements OnInit {
   async ngOnInit(){
 
     displaySpotifyChart("USSpotify","tracksUS");
-    //displaySpotifyChart("MYSpotify","tracksMY");
-    //displaySpotifyChart("IDSpotify","tracksID");
-    //displaySpotifyChart("MXSpotify","tracksMX");
-    //displaySpotifyChart("INSpotify","tracksIN");
     displaySpotifyChart("KRSpotify","tracksKR");
     displaySpotifyChart("JPSpotify","tracksJP");
     displaySpotifyChart("BRSpotify","tracksBR");
-    //displaySpotifyChart("THSpotify","tracksTH");
-    //displaySpotifyChart("PHSpotify","tracksPH");
+    displaySpotifyChart("FRSpotify","tracksFR");
   }
 
 }
