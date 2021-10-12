@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-declare const ChartCreator:any;
-declare const SpotifyDataPipeline:any;
 declare const displaySpotifyChart:any;
 
 @Component({
@@ -13,8 +11,6 @@ export class ImpressionsComponent implements OnInit {
   constructor() { }
 
   async ngOnInit(){
-    let chartHandler = new ChartCreator();
-    let dataPipeline = new SpotifyDataPipeline();
 
     displaySpotifyChart("USSpotify","tracksUS");
     //displaySpotifyChart("MYSpotify","tracksMY");

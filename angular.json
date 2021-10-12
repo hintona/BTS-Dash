@@ -47,7 +47,6 @@
               "./src/scripts/displayTweets.js",
               "./src/scripts/TwitterDataPipeline.js",
               "./src/scripts/PullFromSpotify.js",
-              "./src/scripts/SpotifyDataPipeline.js",
               "./src/scripts/displaySpotifyChart.js"
             ],
             "vendorChunk": true,
