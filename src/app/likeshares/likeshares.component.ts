@@ -14,16 +14,14 @@ export class LikesharesComponent implements OnInit {
 
   public barChartOptions : ChartOptions = {
     responsive: true,
+
   };
   public barChartLabels = ['---', '---', '---', '---', '---', '---', '---'];
-  public barChartType : ChartType = 'bar';
+  public barChartType: ChartType = "bar";
   public barChartLegend = true;
-  public barChartColors : any[] = [{
-    backgroundColor:['#ec407a','#00bcd4','#ec407a','#ec407a','#ec407a','#ec407a','#ec407a']
-  }];
   public barChartData = [
-    {data: [0], label: 'Likes'},
-    {data: [0], label: 'Retweets'}
+    {data: [0], label: 'Likes', backgroundColor:'#ec407a'},
+    {data: [0], label: 'Retweets', backgroundColor:'#00bcd4'}
   ];
 
   async ngOnInit(){
@@ -52,4 +50,6 @@ export class LikesharesComponent implements OnInit {
     }
     this.barChartLabels = dates;
   }
+
+  
 }
