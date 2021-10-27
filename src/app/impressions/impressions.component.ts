@@ -19,4 +19,10 @@ export class ImpressionsComponent implements OnInit {
     displaySpotifyChart("FRSpotify","tracksFR");
   }
 
+  thisDate:Date  = new Date();
+  day:string = String(this.thisDate.getDate()).padStart(2, '0');
+  month:string = String(this.thisDate.getMonth() + 1).padStart(2, '0');
+  year:string = String(this.thisDate.getFullYear());
+  today:string = +this.month+'/'+this.day +'/'+this.year;
+
 }
