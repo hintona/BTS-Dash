@@ -1,10 +1,4 @@
-.faq-box{
-    background:white;
-    border-radius: 10px;
-    width:60vw;
-    min-width: 250px;
-    box-shadow: 12px 0 15px -4px grey, -12px 0 8px -4px grey;
-}
+
 
 .subhead{
     font-family: TroubleSide;
@@ -18,10 +12,4 @@ p.subhead{
 p.response{
     border-left: transparent solid 9px;
     border-right: transparent solid 9px;
-}
-
-.faq-border{
-    border-left: transparent solid 20vw; 
-    border-right: transparent solid  20vw;
-    border-bottom: transparent solid 10px;
 }

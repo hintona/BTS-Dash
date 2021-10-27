@@ -1,41 +1,51 @@
 <body style="background: #f2f2f2;">
-    <div class="faq-border">
-        <div class="faq-box">
-            <p style="border-top:white solid 15px; border-left: white solid 5px;"><a routerLink="/"><mdb-icon fas icon="arrow-left"></mdb-icon> Back to Home</a></p>
-            <h3 class="subhead" style="text-align: center;">FAQs</h3>
-            <p class="subhead">Who are you?</p>
-            <p class="response">
-                I'm Alex Hinton, a computer scientist in my fourth year of study at New College of Florida.
-                I am working on BTS-Dash with Dr. Tania Roy, Assistant Professor of Human Centered Computing
-                at NCF.
-            </p>
-            <p class="subhead">Why did you make this?</p>
-            <p class="response">
-                The initial website was a final project for Dr. Tania Roy's Software Engineering class 
-                in the Spring 2021 semester at NCF. This website, which is a continuation
-                of that project, is an exercise in bringing together information on one subject from across
-                many different social media platforms. BTS, which has a social media following and subsequent 
-                online presence of nigh unheard of proportions, is an ideal topic for this. 
-            </p>
-            <p class="subhead">Where did your data come from?</p>
-            <p class="response">
-                The two Twitter feeds and the graph of the likes and retweets in #bts on Twitter are both
-                being pulled directly from Twitter with their API. The graph of Butter's audio features and the 
-                charts for the top tracks on Spotify according to country are being pulled directly from
-                Spotify also using their API. The live counters are all from either 
-                <a href="https://livecounts.io"  target="_blank" rel="noopener noreferrer">livecounts.io</a>
-                or from 
-                <a href="https://mixerno.space" target="_blank" rel="noopener noreferrer">mixerno.space</a>, 
-                as marked. The Twitter feeds and graph will update daily at 12 AM EST, and the live counters 
-                update every ten seconds.
-            </p>
-            <p class="subhead">I have comments about this. How do I contact you?</p>
-            <p class="response">
-                You can contact me on my GitHub or LinkedIn, which are linked at the bottom of the footer. You can also email me at alexandra.hinton18@ncf.edu
-            </p>
-            <p class="subhead">I think this is super cool.</p>
-            <p class="response">Thanks! That's super sweet of you.</p>
-            <p style="height:15px"> </p>
-        </div>
+    <div class="row">
+        <mdb-card style="margin:20px; width:60%; max-width:1020px; min-width:200px">
+            <mdb-card-body>
+                <p style="border-top:white solid 15px; border-left: white solid 5px;"><a routerLink="/"><mdb-icon fas icon="arrow-left"></mdb-icon> Back to Home</a></p>
+                <h3 class="subhead" style="text-align: center;">FAQs</h3>
+                <p class="subhead">Who are you?</p>
+                <p class="response">
+                    I'm Alex Hinton, a computer scientist in my fourth year of study at New College of Florida.
+                    I am working on BTS-Dash with Dr. Tania Roy, Assistant Professor of Human Centered Computing
+                    at NCF.
+                </p>
+                <p class="subhead">Why did you make this?</p>
+                <p class="response">
+                    The initial website was a final project for Dr. Tania Roy's Software Engineering class 
+                    in the Spring 2021 semester at NCF. This website, which is a continuation
+                    of that project, is an exercise in bringing together information on one subject from across
+                    many different social media platforms. BTS, which has a social media following and subsequent 
+                    online presence of nigh unheard of proportions, is an ideal topic for this. 
+                </p>
+                <p class="subhead">Where did your Twitter data come from?</p>
+                <p class="response">
+                    The tweets are being pulled directly from Twitter with their API. The official tweets are pulled using 
+                    the Twitter API endpoint that pulls the tweets from a particular user from the last 7 days, and it pulls 
+                    from the two official BTS Twitter accounts, @bts_bighit and @bts_twt. The tweets that are displayed in the 
+                    feed on bts-dash are only the ten most recent of these posts. 
+                    The trending tweets are pulled using the Twitter API endpoint that pulls the trending tweets from a specific 
+                    hastag. We are pulling from #BTS on Twitter and displaying the ten most recent posts.
+                </p>
+                <p class="subhead">Where did your follower counters come from?</p>
+                <p class="response">
+                    The follower counters are being pulled from <a href="https://livecounts.io/">livecounts.io</a> and 
+                    <a href="https://mixerno.space">mixerno.space</a>, using the embedded counters provided. They update, roughly, every 10 seconds.
+                </p>
+                <p class="subhead">Where did your Spotify data/track rankings come from?</p>
+                <p class="response">
+                    We are pulling the track rankings for each country from Spotify's API. The rankings for each country are an internal calculation that Spotify
+                    does and isn't directly related to the site-wide popularity ranking of songs. Spotify doesn't release how it calculates what the most popular
+                    songs for each country are, so we're just trusting Spotify on this one.
+                </p>
+                <p class="subhead">I have comments about this. How do I contact you?</p>
+                <p class="response">
+                    You can contact me on my GitHub or LinkedIn, which are linked at the bottom of the footer. You can also email me at alexandra.hinton18@ncf.edu
+                </p>
+                <p class="subhead">I think this is super cool.</p>
+                <p class="response">Thanks! That's super sweet of you.</p>
+                <p style="height:15px"> </p>
+            </mdb-card-body>
+        </mdb-card>
     </div>
 </body>
