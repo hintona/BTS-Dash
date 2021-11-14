@@ -14,7 +14,6 @@ export class LikesharesComponent implements OnInit {
 
   public barChartOptions : ChartOptions = {
     responsive: true,
-
   };
   public barChartLabels = ['---', '---', '---', '---', '---', '---', '---'];
   public barChartType: ChartType = "bar";

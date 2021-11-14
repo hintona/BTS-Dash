@@ -10,13 +10,13 @@
                     <mdb-card-text>
                         <p>An overview of the total likes and retweets in #BTS on Twitter over the past seven days</p>
 
-                        <div style="display: block">
+                        <div style="display: block;">
                             <canvas baseChart
                                 [datasets]="barChartData"
                                 [labels]="barChartLabels"
                                 [options]="barChartOptions"
                                 [legend]="barChartLegend"
-                                [chartType]="barChartType">
+                                [chartType]="barChartType" style="max-height: 500px; max-width:1200px">
                             </canvas>
                         </div>
 

@@ -1,5 +1,6 @@
 .grid-item{
     width: 85%;
+    max-width:1200px
 }
 .underline2{   
     border-bottom: double 4px transparent;
