@@ -29,7 +29,8 @@ class DatabaseAgent{
      * @returns An array with each element corresponding to a document from the firebase collection
      */
     async getDocuments(collection){
-        const snapshot = await this.database.collection(collection).get()
+        const collect = this.database.collection(collection);
+        const snapshot = await collect.get();
         return snapshot.docs.map(doc => doc.data());
     }
     /**

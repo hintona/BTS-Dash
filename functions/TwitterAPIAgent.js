@@ -22,7 +22,13 @@ class TwitterAPIAgent{
      * @returns The twitter data in a json formatted array.
      */
     async get(url, params){
-        let data = await this.client.get(url, params);
+        console.log("Message sent is:");
+        console.log(url);
+        console.log(params);
+        let data = await this.client.get(url, params,);
+        if(error) throw error;
+        console.log("Received:");
+        console.log(data);
         //URL endpoints that user "search" returns data in a different format than the other URL
         //enpoints so this function makes sure that data is returned like that of the other endpoints
         if(url.includes("search")){

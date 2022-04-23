@@ -7,6 +7,7 @@ const cors = require('cors')({origin: true});
 //const translate = require('translate');
 
 //Import neeeded classes
+const { initializeApp } = require('firebase-admin/app');
 const {TwitterDatabaseAgent} = require('./TwitterDabataseAgent.js');
 const {SpotifyDatabaseAgent} = require('./SpotifyDatabaseAgent.js');
 const {TwitterAPIAgent} = require("./TwitterAPIAgent.js");
@@ -16,7 +17,21 @@ const {getSpotifyClient} = require("./getSpotifyClient.js");
 const {SpotifyTopTracks} = require("./SpotifyTopTracks.js");
 
 //initialize the firebase app
-admin.initializeApp();
+var serviceAccount = require("./bts-dash-firebase-adminsdk-87250-4d1a74a9dc.json");
+const { app } = require('firebase-admin');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  apiKey: "AIzaSyA_FYrLL7otV1QgH43iQ38AAHc5uw8sVw4",
+  authDomain: "bts-dash.firebaseapp.com",
+  databaseURL: "https://bts-dash-default-rtdb.firebaseio.com",
+  projectId: "bts-dash",
+  storageBucket: "bts-dash.appspot.com",
+  messagingSenderId: "722872659222",
+  appId: "1:722872659222:web:111a219f870fe0e28b3437",
+  measurementId: "G-NPL92HGSKT"
+});
+
+
 //Instantiate needed classes
 const client = getTwitterClient();
 const SpotifyClient = getSpotifyClient();
@@ -36,6 +51,7 @@ exports.getTopTracks = functions.https.onRequest((request, response) =>{
   SpotifyTracker.getTracks('FR');
   SpotifyTracker.getTracks('KR');
   SpotifyTracker.getTracks('JP');
+  response.end()
   })
   
 })

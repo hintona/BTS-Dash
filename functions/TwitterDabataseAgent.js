@@ -8,6 +8,7 @@ const {DatabaseAgent} = require('./DatabaseAgent.js');
 class TwitterDatabaseAgent extends DatabaseAgent{
     constructor(database){
         super(database);
+        console.log("twitter")
     }
     /**
      * Given the contents of an embedded tweet, this method will create a new
