@@ -8,7 +8,8 @@ class TwitterPuller{
     }
 
     async officialTweets(account){
-        var url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="+ account +"&count=10";
+        var url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=BTS_twt&count=10";
+        var url2 = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=bts_bighit&count=10";
 
         const response = fetch(url, {
             headers: {
@@ -20,7 +21,21 @@ class TwitterPuller{
             const TD_Agent = new TwitterDatabaseAgent(admin.firestore());
                 for(let index = 0; index < 10; index++){
                     //console.log(response[index]);
-                    TD_Agent.saveSpecificDocument(response[index], account, index.toString());
+                    TD_Agent.saveSpecificDocument(response[index], "tweets", index.toString());
+                }
+        })
+
+        const response2 = fetch(url2, {
+            headers: {
+                Authorization: "Bearer AAAAAAAAAAAAAAAAAAAAABgqOwEAAAAA1sVy3%2B0UNn2MFXwSm6DDIRXKWjQ%3DyFjSbwaVloahcI7IBzigWYy9iJL8F4JQjmCMcoYdgrcmAr3wz8"
+            }
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            const TD_Agent = new TwitterDatabaseAgent(admin.firestore());
+                for(let index = 10; index < 20; index++){
+                    //console.log(response[index]);
+                    TD_Agent.saveSpecificDocument(response[index], "tweets", index.toString());
                 }
         })
     }
@@ -37,7 +52,7 @@ class TwitterPuller{
         .then((response) => {
             const TD_Agent = new TwitterDatabaseAgent(admin.firestore());
                 for(let index = 0; index < 10; index++){
-                    TD_Agent.saveSpecificDocument(response["statuses"][1], "#bts", index.toString());
+                    TD_Agent.saveSpecificDocument(response["statuses"][index], "#bts", index.toString());
                 }
         })
     }

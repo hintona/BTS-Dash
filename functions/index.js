@@ -115,8 +115,8 @@ exports.updateTrendingTweets = functions.https.onRequest((request, response) => 
 
 exports.getTwitterMainTwts = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    const officialBTS = await TwitterPull.officialTweets("BTS_twt");
-    const officialBighits = await TwitterPull.officialTweets("bts_bighit");
+    const officialBTS = await TwitterPull.officialTweets();
+    const officialBighits = await TwitterPull.officialTweets();
     const trendingTweets = await TwitterPull.trendingTweets();
     response.end();
   }); 
@@ -135,15 +135,18 @@ exports.getDataFromSpotifyDB = functions.https.onCall(async (data, context) => {
 //KD
 //firebase scheduled function for updating main and user page tweets
 exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
-  const mainTweets = 'https://us-central1-bts-dash.cloudfunctions.net/updateMainTweets';
-  const trendingTweets = 'https://us-central1-bts-dash.cloudfunctions.net/updateTrendingTweets';
-  const activityData = 'https://us-central1-bts-dash.cloudfunctions.net/updateActivityData';
-  fetch(mainTweets)
+  //const mainTweets = 'https://us-central1-bts-dash.cloudfunctions.net/updateMainTweets';
+  //const trendingTweets = 'https://us-central1-bts-dash.cloudfunctions.net/updateTrendingTweets';
+  //const activityData = 'https://us-central1-bts-dash.cloudfunctions.net/updateActivityData';
+  const Tweets = 'https://us-central1-bts-dash.cloudfunctions.net/getTwitterMainTwts';
+  fetch(Tweets)
   .then((result) => console.log(result));
-  fetch(trendingTweets)
-  .then((result) => console.log(result));
-  fetch(activityData)
-  .then((result) => console.log(result));
+  //fetch(mainTweets)
+  //.then((result) => console.log(result));
+  //fetch(trendingTweets)
+  //.then((result) => console.log(result));
+  //fetch(activityData)
+  //.then((result) => console.log(result));
   return null;
 })
 //@VT_VACKINTOSH

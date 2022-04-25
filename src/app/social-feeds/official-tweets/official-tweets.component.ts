@@ -11,8 +11,7 @@ export class OfficialTweetsComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    displayTweets("tweets", "bts_bighit");
-    displayTweets("tweets", "BTS_twt");
+    displayTweets("tweets", "tweets");
   }
 
   ngAfterViewInit() {
