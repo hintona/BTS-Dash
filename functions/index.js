@@ -1,6 +1,6 @@
 //Load needed packages
 require('dotenv').config();
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const cors = require('cors')({origin: true});
@@ -15,10 +15,12 @@ const {TweetUpdater} = require("./TweetUpdater.js");
 const {getTwitterClient} = require("./getTwitterClient.js");
 const {getSpotifyClient} = require("./getSpotifyClient.js");
 const {SpotifyTopTracks} = require("./SpotifyTopTracks.js");
+const {TwitterPuller} = require("./TwitterPuller.js");
 
 //initialize the firebase app
 var serviceAccount = require("./bts-dash-firebase-adminsdk-87250-4d1a74a9dc.json");
 const { app } = require('firebase-admin');
+const Twitter = require('twitter');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   apiKey: "AIzaSyA_FYrLL7otV1QgH43iQ38AAHc5uw8sVw4",
@@ -40,6 +42,7 @@ const SD_Agent = new SpotifyDatabaseAgent(admin.firestore());
 const TAPI_Agent = new TwitterAPIAgent(client);
 const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
+const TwitterPull = new TwitterPuller();
 
 //The top tracks for each country passed are being stored in appropriate Firestire collections
 //Also, the audio features for Dynamite are also being taken here
@@ -109,6 +112,14 @@ exports.updateTrendingTweets = functions.https.onRequest((request, response) => 
     });
   });
 });
+
+exports.getTwitterMainTwts = functions.https.onRequest(async (request, response) => {
+  cors(request, response, async () => {
+    const officialBTS = await TwitterPull.officialTweets("BTS_twt");
+    const officialBighits = await TwitterPull.officialTweets("bts_bighit");
+    response.end();
+  }); 
+})
 
 //KD
 //firebase onCall function that gets twitter data from the database and returns it

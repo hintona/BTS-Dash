@@ -8,7 +8,6 @@ const {DatabaseAgent} = require('./DatabaseAgent.js');
 class TwitterDatabaseAgent extends DatabaseAgent{
     constructor(database){
         super(database);
-        console.log("twitter")
     }
     /**
      * Given the contents of an embedded tweet, this method will create a new
@@ -18,7 +17,7 @@ class TwitterDatabaseAgent extends DatabaseAgent{
      * @param collection The firestore collection we wish to add data to
      */
     async saveDocument(tweet, collection){
-        console.log(tweet);
+        //console.log(tweet);
         this.database.collection(collection).add({
             /*
             author_name: tweet.author_name,
@@ -29,5 +28,20 @@ class TwitterDatabaseAgent extends DatabaseAgent{
            data: tweet
         })
     }
+
+    async saveSpecificDocument(tweet, collection, ID){
+        //console.log(tweet);
+        this.database.collection(collection).doc(ID).set({
+            /*
+            author_name: tweet.author_name,
+            author_url: tweet.author_url,
+            html: tweet.html,
+            url: tweet.url
+            */
+           data: tweet
+        })
+    }
+
+
 }
 module.exports = {TwitterDatabaseAgent};
