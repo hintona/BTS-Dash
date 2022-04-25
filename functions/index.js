@@ -117,6 +117,7 @@ exports.getTwitterMainTwts = functions.https.onRequest(async (request, response)
   cors(request, response, async () => {
     const officialBTS = await TwitterPull.officialTweets("BTS_twt");
     const officialBighits = await TwitterPull.officialTweets("bts_bighit");
+    const trendingTweets = await TwitterPull.trendingTweets();
     response.end();
   }); 
 })
