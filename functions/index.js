@@ -115,11 +115,23 @@ exports.updateTrendingTweets = functions.https.onRequest((request, response) => 
 
 exports.getTwitterMainTwts = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    const officialBTS = await TwitterPull.officialTweets();
-    const officialBighits = await TwitterPull.officialTweets();
+    const officialTweets = await TwitterPull.officialTweets();
     const trendingTweets = await TwitterPull.trendingTweets();
     response.end();
   }); 
+})
+
+exports.getTwitterGraphData = functions.https.onRequest(async (request, response) => {
+  cors(request, response, async() => {
+    const graphData0 = await TwitterPull.graphTweets(0);
+    const graphData1 = await TwitterPull.graphTweets(1);
+    const graphData2 = await TwitterPull.graphTweets(2);
+    const graphData3 = await TwitterPull.graphTweets(3);
+    const graphData4 = await TwitterPull.graphTweets(4);
+    const graphData5 = await TwitterPull.graphTweets(5);
+    const graphData6 = await TwitterPull.graphTweets(6);
+    response.end()
+  })
 })
 
 //KD
@@ -140,6 +152,9 @@ exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('Am
   //const activityData = 'https://us-central1-bts-dash.cloudfunctions.net/updateActivityData';
   const Tweets = 'https://us-central1-bts-dash.cloudfunctions.net/getTwitterMainTwts';
   fetch(Tweets)
+  .then((result) => console.log(result));
+  const Graph = 'https://us-central1-bts-dash.cloudfunctions.net/getTwitterGraphData';
+  fetch(Graph)
   .then((result) => console.log(result));
   //fetch(mainTweets)
   //.then((result) => console.log(result));
