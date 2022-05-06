@@ -1,3 +1,8 @@
+//AHinton
+/**
+ * This class makes fetch requests to Twitter for tweets, then uses the database agent to store that data in firestore
+ */
+
 const { TwitterDatabaseAgent } = require("./TwitterDabataseAgent");
 const admin = require('firebase-admin');
 const fetch = require("node-fetch")

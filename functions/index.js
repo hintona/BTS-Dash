@@ -7,20 +7,14 @@ const cors = require('cors')({origin: true});
 //const translate = require('translate');
 
 //Import neeeded classes
-const { initializeApp } = require('firebase-admin/app');
 const {TwitterDatabaseAgent} = require('./TwitterDabataseAgent.js');
 const {SpotifyDatabaseAgent} = require('./SpotifyDatabaseAgent.js');
-const {TwitterAPIAgent} = require("./TwitterAPIAgent.js");
-const {TweetUpdater} = require("./TweetUpdater.js");
-const {getTwitterClient} = require("./getTwitterClient.js");
 const {getSpotifyClient} = require("./getSpotifyClient.js");
 const {SpotifyTopTracks} = require("./SpotifyTopTracks.js");
 const {TwitterPuller} = require("./TwitterPuller.js");
 
 //initialize the firebase app
 var serviceAccount = require("./bts-dash-firebase-adminsdk-87250-4d1a74a9dc.json");
-const { app } = require('firebase-admin');
-const Twitter = require('twitter');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   apiKey: "AIzaSyA_FYrLL7otV1QgH43iQ38AAHc5uw8sVw4",
@@ -35,18 +29,13 @@ admin.initializeApp({
 
 
 //Instantiate needed classes
-const client = getTwitterClient();
 const SpotifyClient = getSpotifyClient();
 const TD_Agent = new TwitterDatabaseAgent(admin.firestore());
 const SD_Agent = new SpotifyDatabaseAgent(admin.firestore());
-const TAPI_Agent = new TwitterAPIAgent(client);
-const tweetHandler = new TweetUpdater(TD_Agent, TAPI_Agent);
 const SpotifyTracker = new SpotifyTopTracks(SpotifyClient, SD_Agent);
 const TwitterPull = new TwitterPuller();
 
 //The top tracks for each country passed are being stored in appropriate Firestire collections
-//Also, the audio features for Dynamite are also being taken here
-//@VT_VACKINTOSH
 exports.getTopTracks = functions.https.onRequest((request, response) =>{
   cors(request, response, async () => {
   SpotifyTracker.getTracks('US');
@@ -59,60 +48,7 @@ exports.getTopTracks = functions.https.onRequest((request, response) =>{
   
 })
 
-//KD
-exports.updateActivityData = functions.https.onRequest((request, response) => {
-  cors(request, response, async () => {
-    let responseData = [];
-    let dateRange = 7;
-    let url = 'search/tweets';
-    let params;
-    let currDate = new Date();
-    let presentDate;
-    let prevDate;
-    let sinceDate;
-    let date;
-    for (let index = 0; index<dateRange; index++){
-      presentDate = new Date(currDate.getTime() - (index * 24 * 60 * 60 * 1000));
-      prevDate = new Date(currDate.getTime() - ((index+1) * 24 * 60 * 60 * 1000));
-      date = presentDate.getFullYear() + "-" + (presentDate.getMonth()+1) + "-" + presentDate.getDate();
-      sinceDate = prevDate.getFullYear() + "-" + (prevDate.getMonth()+1) + "-" + prevDate.getDate();
-      params = {q:"#bts", count:10, result_type:"popular", since:sinceDate, until:date};
-      await tweetHandler.updateTweets(url, params, date, response)
-      .then(data => {
-        responseData.push(data);
-      });
-    }
-    TD_Agent.deleteDocuments(sinceDate);
-    response.status(200).send(responseData);
-  });
-});
-
-//KD
-//firebase request function to update tweets that will be displayed on the main page
-exports.updateMainTweets = functions.https.onRequest((request, response) => {
-  cors(request, response, async () => {
-    let url = 'statuses/user_timeline';
-    let params = {screen_name:"bts_bighit", count:10};
-    await tweetHandler.updateTweets(url, params, "tweets", response)
-    .then(data => {
-      response.status(200).send(data);
-    });
-  });
-});
-
-//KD
-//firebase request function to update tweets that will be displayed on user page
-exports.updateTrendingTweets = functions.https.onRequest((request, response) => {
-  cors(request, response, async () => {
-    let url = 'search/tweets';
-    let params = {q:"#bts", count:10, response_type:"popular"};
-    tweetHandler.updateTweets(url, params, "#bts", response)
-    .then(data => {
-      response.status(200).send(data);
-    });
-  });
-});
-
+//Pulls the official and trending tweets
 exports.getTwitterMainTwts = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
     const officialTweets = await TwitterPull.officialTweets();
@@ -121,6 +57,7 @@ exports.getTwitterMainTwts = functions.https.onRequest(async (request, response)
   }); 
 })
 
+//Pulls the graph data for the last week
 exports.getTwitterGraphData = functions.https.onRequest(async (request, response) => {
   cors(request, response, async() => {
     const graphData0 = await TwitterPull.graphTweets(0);
@@ -134,7 +71,6 @@ exports.getTwitterGraphData = functions.https.onRequest(async (request, response
   })
 })
 
-//KD
 //firebase onCall function that gets twitter data from the database and returns it
 exports.getDataFromDB = functions.https.onCall(async (data, context) => {
   return TD_Agent.getDocuments(data);
@@ -144,27 +80,22 @@ exports.getDataFromSpotifyDB = functions.https.onCall(async (data, context) => {
   return SD_Agent.getDocuments(data);
 })
 
-//KD
-//firebase scheduled function for updating main and user page tweets
+//firebase scheduled function for updating twitter feeds
 exports.refreshTweets = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
-  //const mainTweets = 'https://us-central1-bts-dash.cloudfunctions.net/updateMainTweets';
-  //const trendingTweets = 'https://us-central1-bts-dash.cloudfunctions.net/updateTrendingTweets';
-  //const activityData = 'https://us-central1-bts-dash.cloudfunctions.net/updateActivityData';
   const Tweets = 'https://us-central1-bts-dash.cloudfunctions.net/getTwitterMainTwts';
   fetch(Tweets)
   .then((result) => console.log(result));
+  return null;
+})
+
+//firebase scheduled function for updating twitter graphs, separated from refreshTweets for performance
+exports.refreshGraph = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const Graph = 'https://us-central1-bts-dash.cloudfunctions.net/getTwitterGraphData';
   fetch(Graph)
   .then((result) => console.log(result));
-  //fetch(mainTweets)
-  //.then((result) => console.log(result));
-  //fetch(trendingTweets)
-  //.then((result) => console.log(result));
-  //fetch(activityData)
-  //.then((result) => console.log(result));
   return null;
 })
-//@VT_VACKINTOSH
+
 //Scheduled function for updating tracks and audio features
 exports.refreshTracks = functions.pubsub.schedule('every 24 hours').timeZone('America/New_York').onRun((context) => {
   const newTracks = 'https://us-central1-bts-dash.cloudfunctions.net/getTopTracks';
